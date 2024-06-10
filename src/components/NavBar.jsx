@@ -3,23 +3,29 @@ import styled from "styled-components";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { bg, en, icon } from "../assets";
 import { HashLink as Link } from "react-router-hash-link";
-import { useSelector } from "react-redux";
 import { navBar } from "../localizations/strings";
 import { useLocation } from "react-router";
+import { changeLanguage } from "../reducers/languageReducer";
+import { useAppDispatch, useAppSelector } from "../store";
 
 export const NavBar = () => {
   const [extendBar, setExtendBar] = useState(false);
-  const { language } = useSelector((state) => state.languageReducer);
+  const language = useAppSelector((state) => state.language.language);
+  const dispatch = useAppDispatch();
   const label = navBar[language];
   const location = useLocation();
-  const [activeLink, setActiveLink] = useState(location.hash || '#');
+  const [activeLink, setActiveLink] = useState(location.hash || "#");
 
   useEffect(() => {
-    setActiveLink(location.hash || '#');
+    setActiveLink(location.hash || "#");
   }, [location]);
 
   const renderNavBar = () => {
     setExtendBar(!extendBar);
+  };
+
+  const handleLanguageChange = (lang) => {
+    dispatch(changeLanguage(lang));
   };
 
   return (
@@ -29,25 +35,33 @@ export const NavBar = () => {
         {extendBar ? <AiOutlineClose size={25} /> : <AiOutlineMenu />}
       </MenuWrapper>
       <NavLinks extendBar={extendBar}>
-        <Navlink to="#" smooth active={activeLink === '#'}>
+        <Navlink to="#" smooth active={activeLink === "#"}>
           {label.home}
         </Navlink>
-        <Navlink to="#about" smooth active={activeLink === '#about'}>
+        <Navlink to="#about" smooth active={activeLink === "#about"}>
           {label.about}
         </Navlink>
-        <Navlink to="#skills" smooth active={activeLink === '#skills'}>
+        <Navlink to="#skills" smooth active={activeLink === "#skills"}>
           {label.skills}
         </Navlink>
-        <Navlink to="#projects" smooth active={activeLink === '#projects'}>
+        <Navlink to="#projects" smooth active={activeLink === "#projects"}>
           {label.projects}
         </Navlink>
-        <Navlink to="#contacts" smooth active={activeLink === '#contacts'}>
+        <Navlink to="#contacts" smooth active={activeLink === "#contacts"}>
           {label.contacts}
         </Navlink>
       </NavLinks>
       <Flag>
-        <FlagImg src={bg} alt="" />
-        <FlagImg src={en} alt="" />
+        <FlagImg
+          src={bg}
+          alt="Bulgarian"
+          onClick={() => handleLanguageChange("bg")}
+        />
+        <FlagImg
+          src={en}
+          alt="English"
+          onClick={() => handleLanguageChange("en")}
+        />
       </Flag>
     </Wrapper>
   );
@@ -68,8 +82,8 @@ const Wrapper = styled.div`
 
   @media (max-width: 480px) {
     flex-direction: column;
-    height: ${({ extendBar }) => (extendBar ? '240px' : '60px')};
-    padding: ${({ extendBar }) => (extendBar ? '10px 0' : '0 20px')};
+    height: ${({ extendBar }) => (extendBar ? "240px" : "60px")};
+    padding: ${({ extendBar }) => (extendBar ? "10px 0" : "0 20px")};
   }
 `;
 
@@ -90,7 +104,7 @@ const NavLinks = styled.div`
   @media (max-width: 480px) {
     flex-direction: column;
     width: 100%;
-    display: ${({ extendBar }) => (extendBar ? 'flex' : 'none')};
+    display: ${({ extendBar }) => (extendBar ? "flex" : "none")};
   }
 `;
 
@@ -101,7 +115,7 @@ const Navlink = styled(Link)`
   font-size: 20px;
   cursor: pointer;
   margin-right: 40px;
-  border-bottom: ${({ active }) => (active ? '2px solid red' : 'none')};
+  border-bottom: ${({ active }) => (active ? "2px solid red" : "none")};
 
   &:hover {
     color: red;

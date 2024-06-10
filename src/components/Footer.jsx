@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
-import { useSelector } from "react-redux";
 import { footer } from "../localizations/strings";
+import { useAppSelector } from "../store";
 
 export const Footer = () => {
-  const { language } = useSelector((state) => state.languageReducer);
+  const language = useAppSelector((state) => state.language.language);
   const label = footer[language];
 
   return (

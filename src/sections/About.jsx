@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { about } from "../localizations/strings";
+import { useAppSelector } from "../store";
 
 export const About = () => {
-  const { language } = useSelector((state) => state.languageReducer);
+  const language = useAppSelector((state) => state.language.language);
   const label = about[language];
 
   return (

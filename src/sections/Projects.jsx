@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { cake, krisfit9, movie } from "../assets";
-import { useSelector } from "react-redux";
 import { projects } from "../localizations/strings";
+import { useAppSelector } from "../store";
 
 export const Projects = () => {
-  const { language } = useSelector((state) => state.languageReducer);
+  const language = useAppSelector((state) => state.language.language);
   const label = projects[language];
   return (
     <ProjectsContainer id="projects">
