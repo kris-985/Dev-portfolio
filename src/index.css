@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  background-color: black;
+  font-family: "Poppins sans-serif";
+  font-weight: bold;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  background-color: red;
+  border-radius: 100px;
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: #ebe7e7;
+  border-radius: 180px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d30e1e;
+  border-radius: 180px;
+}
