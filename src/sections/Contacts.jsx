@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { FaLinkedin, FaEnvelope } from "react-icons/fa";
-import { useSelector } from "react-redux";
 import { contacts } from "../localizations/strings";
+import { useAppSelector } from "../store";
 
 export const Contacts = () => {
-  const { language } = useSelector((state) => state.languageReducer);
+  const language = useAppSelector((state) => state.language.language);
   const label = contacts[language];
-  
+
   return (
     <ContactsContainer id="contacts">
       <Title>{label.title}</Title>

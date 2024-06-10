@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { FaJs, FaReact } from "react-icons/fa";
 import { SiRedux, SiTailwindcss, SiStyledcomponents } from "react-icons/si";
 import { DiFirebase } from "react-icons/di";
-import { useSelector } from "react-redux";
 import { skills } from "../localizations/strings";
+import { useAppSelector } from "../store";
 
 const skillsLeft = [
   { name: "JavaScript", icon: <FaJs /> },
@@ -18,8 +18,7 @@ const skillsRight = [
 ];
 
 export const Skills = () => {
-  const { language } = useSelector((state) => state.languageReducer);
-  const label = skills[language];
+  const language = useAppSelector((state) => state.language.language);  const label = skills[language];
   return (
     <SkillsContainer id="skills">
       <Title>{label.title}</Title>

@@ -2,13 +2,12 @@ import { HashLink as Link } from "react-router-hash-link";
 import styled from "styled-components";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { Fragment } from "react";
-import { useSelector } from "react-redux";
 import { home } from "../localizations/strings";
 import { avatar } from "../assets";
-
+import { useAppSelector } from "../store";
 
 export const Home = () => {
-  const { language } = useSelector((state) => state.languageReducer);
+  const language = useAppSelector((state) => state.language.language);
   const label = home[language];
 
   return (
