@@ -5,5 +5,7 @@ import cake from "./cake.png";
 import krisfit9 from "./krisfit9.png";
 import movie from "./movie.png";
 import avatar from "./avatar.jpg"
+import react from "./react.png"
 
-export { icon, bg, en, cake, krisfit9, movie, avatar };
+
+export { icon, bg, en, cake, krisfit9, movie, avatar, react };

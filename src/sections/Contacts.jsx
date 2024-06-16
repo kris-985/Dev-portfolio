@@ -2,27 +2,28 @@ import styled from "styled-components";
 import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { contacts } from "../localizations/strings";
 import { useAppSelector } from "../store";
+import ScrollAnimation from "react-animate-on-scroll";
+import { Link } from "react-router-dom";
 
 export const Contacts = () => {
   const language = useAppSelector((state) => state.language.language);
   const label = contacts[language];
 
   return (
-    <ContactsContainer id="contacts">
-      <Title>{label.title}</Title>
-      <Description>{label.description}</Description>
-      <IconsContainer>
-        <IconLink
-          href="https://www.linkedin.com/in/kristiyan-bakalov/"
-          target="_blank"
-        >
-          <FaLinkedin />
-        </IconLink>
-        <IconLink href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRnXmtxtHDWcBpHLtfrdxWKDxQnfhdpwZMCKhthwXskXxnMNWMtTRLDMrDwnCxcZJnqlcMv">
-          <FaEnvelope />
-        </IconLink>
-      </IconsContainer>
-    </ContactsContainer>
+    <ScrollAnimation animateIn="wobble">
+      <ContactsContainer id="contacts">
+        <Title>{label.title}</Title>
+        <Description>{label.description}</Description>
+        <IconsContainer>
+          <IconLink to="https://www.linkedin.com/in/kristiyan-bakalov/">
+            <FaLinkedin />
+          </IconLink>
+          <IconLink to="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRnXmtxtHDWcBpHLtfrdxWKDxQnfhdpwZMCKhthwXskXxnMNWMtTRLDMrDwnCxcZJnqlcMv">
+            <FaEnvelope />
+          </IconLink>
+        </IconsContainer>
+      </ContactsContainer>
+    </ScrollAnimation>
   );
 };
 
@@ -41,7 +42,15 @@ const Title = styled.h1`
   font-size: 60px;
   margin-bottom: 20px;
 
+  @media (max-width: 1024px) {
+    font-size: 50px;
+  }
+
   @media (max-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 480px) {
     font-size: 28px;
   }
 `;
@@ -53,9 +62,17 @@ const Description = styled.p`
   max-width: 800px;
   color: white;
 
+  @media (max-width: 1024px) {
+    font-size: 40px;
+  }
+
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 30px;
     text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
   }
 `;
 
@@ -65,7 +82,7 @@ const IconsContainer = styled.div`
   gap: 20px;
 `;
 
-const IconLink = styled.a`
+const IconLink = styled(Link)`
   font-size: 60px;
   color: white;
 
@@ -73,7 +90,15 @@ const IconLink = styled.a`
     color: #cf1b1b;
   }
 
+  @media (max-width: 1024px) {
+    font-size: 50px;
+  }
+
   @media (max-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 480px) {
     font-size: 30px;
   }
 `;

@@ -2,34 +2,30 @@ import styled from "styled-components";
 import { cake, krisfit9, movie } from "../assets";
 import { projects } from "../localizations/strings";
 import { useAppSelector } from "../store";
+import ScrollAnimation from "react-animate-on-scroll";
+import { Link } from "react-router-dom";
 
 export const Projects = () => {
   const language = useAppSelector((state) => state.language.language);
   const label = projects[language];
+
   return (
-    <ProjectsContainer id="projects">
-      <Title>{label.title}</Title>
-      <ImagesWrapper>
-        <ProjectImage
-          href="https://github.com/kris-985/cake-app"
-          target="_blank"
-        >
-          <Image src={cake} alt="" />
-        </ProjectImage>
-        <ProjectImage
-          href="https://github.com/kris-985/krisfit9"
-          target="_blank"
-        >
-          <Image src={krisfit9} alt="" />
-        </ProjectImage>
-        <ProjectImage
-          href="https://github.com/kris-985/movie-app"
-          target="_blank"
-        >
-          <Image src={movie} alt="" />
-        </ProjectImage>
-      </ImagesWrapper>
-    </ProjectsContainer>
+    <ScrollAnimation animateIn="fadeIn">
+      <ProjectsContainer id="projects">
+        <Title>{label.title}</Title>
+        <ImagesWrapper>
+          <ProjectImage to="https://github.com/kris-985/cake-app">
+            <Image src={cake} alt="Cake App" />
+          </ProjectImage>
+          <ProjectImage to="https://github.com/kris-985/krisfit9">
+            <Image src={krisfit9} alt="Krisfit9" />
+          </ProjectImage>
+          <ProjectImage to="https://github.com/kris-985/movie-app">
+            <Image src={movie} alt="Movie App" />
+          </ProjectImage>
+        </ImagesWrapper>
+      </ProjectsContainer>
+    </ScrollAnimation>
   );
 };
 
@@ -39,8 +35,16 @@ const ProjectsContainer = styled.div`
   align-items: center;
   margin: 30px;
 
+  @media (max-width: 480px) {
+    margin: 10px;
+  }
+
   @media (max-width: 768px) {
     margin: 15px;
+  }
+
+  @media (max-width: 1024px) {
+    margin: 20px;
   }
 `;
 
@@ -52,9 +56,16 @@ const Title = styled.h1`
   font-size: 45px;
   margin-bottom: 20px;
 
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
+
   @media (max-width: 768px) {
     font-size: 28px;
-    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 36px;
   }
 `;
 
@@ -64,27 +75,39 @@ const ImagesWrapper = styled.div`
   gap: 30px;
   flex-wrap: wrap;
 
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
+
   @media (max-width: 768px) {
     gap: 15px;
   }
+
+  @media (max-width: 1024px) {
+    gap: 20px;
+  }
 `;
 
-const ProjectImage = styled.a`
+const ProjectImage = styled(Link)`
   display: inline-block;
   border-radius: 0.5rem;
   overflow: hidden;
-
   width: 400px;
   height: 400px;
 
-  @media (max-width: 1024px) {
-    width: 300px;
-    height: 300px;
+  @media (max-width: 480px) {
+    width: 150px;
+    height: 150px;
   }
 
   @media (max-width: 768px) {
     width: 200px;
     height: 200px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 300px;
+    height: 300px;
   }
 `;
 

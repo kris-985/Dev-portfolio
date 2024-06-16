@@ -4,6 +4,7 @@ import { SiRedux, SiTailwindcss, SiStyledcomponents } from "react-icons/si";
 import { DiFirebase } from "react-icons/di";
 import { skills } from "../localizations/strings";
 import { useAppSelector } from "../store";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const skillsLeft = [
   { name: "JavaScript", icon: <FaJs /> },
@@ -18,29 +19,33 @@ const skillsRight = [
 ];
 
 export const Skills = () => {
-  const language = useAppSelector((state) => state.language.language);  const label = skills[language];
+  const language = useAppSelector((state) => state.language.language);
+  const label = skills[language];
+
   return (
-    <SkillsContainer id="skills">
-      <Title>{label.title}</Title>
-      <SkillsWrapper>
-        <Column>
-          {skillsLeft.map((skill) => (
-            <SkillItem key={skill.name}>
-              {skill.icon}
-              <SkillName>{skill.name}</SkillName>
-            </SkillItem>
-          ))}
-        </Column>
-        <Column>
-          {skillsRight.map((skill) => (
-            <SkillItem key={skill.name}>
-              {skill.icon}
-              <SkillName>{skill.name}</SkillName>
-            </SkillItem>
-          ))}
-        </Column>
-      </SkillsWrapper>
-    </SkillsContainer>
+    <ScrollAnimation animateIn="flipInX" delay={200}>
+      <SkillsContainer id="skills">
+        <Title>{label.title}</Title>
+        <SkillsWrapper>
+          <Column>
+            {skillsLeft.map((skill) => (
+              <SkillItem key={skill.name}>
+                {skill.icon}
+                <SkillName>{skill.name}</SkillName>
+              </SkillItem>
+            ))}
+          </Column>
+          <Column>
+            {skillsRight.map((skill) => (
+              <SkillItem key={skill.name}>
+                {skill.icon}
+                <SkillName>{skill.name}</SkillName>
+              </SkillItem>
+            ))}
+          </Column>
+        </SkillsWrapper>
+      </SkillsContainer>
+    </ScrollAnimation>
   );
 };
 
@@ -49,6 +54,10 @@ const SkillsContainer = styled.div`
   text-align: center;
 
   @media (max-width: 768px) {
+    padding: 10px;
+  }
+
+  @media (max-width: 1024px) {
     padding: 20px;
   }
 `;
@@ -60,20 +69,23 @@ const Title = styled.h1`
   font-size: 45px;
   margin-bottom: 20px;
 
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
+
   @media (max-width: 768px) {
     font-size: 28px;
-    text-align: center;
   }
 `;
 
 const SkillsWrapper = styled.div`
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Allow items to wrap */
+  flex-wrap: wrap;
   gap: 20px;
   margin-left: 8rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     margin-left: 0;
   }
 `;
@@ -101,6 +113,10 @@ const SkillItem = styled.div`
   &:hover {
     transform: scale(1.1);
     color: #cf1b1b;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
   }
 
   @media (max-width: 768px) {

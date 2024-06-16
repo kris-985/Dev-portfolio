@@ -11,10 +11,10 @@ import { useAppDispatch, useAppSelector } from "../store";
 export const NavBar = () => {
   const [extendBar, setExtendBar] = useState(false);
   const language = useAppSelector((state) => state.language.language);
-  const dispatch = useAppDispatch();
   const label = navBar[language];
   const location = useLocation();
   const [activeLink, setActiveLink] = useState(location.hash || "#");
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     setActiveLink(location.hash || "#");
@@ -54,12 +54,12 @@ export const NavBar = () => {
       <Flag>
         <FlagImg
           src={bg}
-          alt="Bulgarian"
+          alt="BG"
           onClick={() => handleLanguageChange("bg")}
         />
         <FlagImg
           src={en}
-          alt="English"
+          alt="EN"
           onClick={() => handleLanguageChange("en")}
         />
       </Flag>
@@ -72,13 +72,17 @@ const Wrapper = styled.div`
   justify-content: space-evenly;
   align-items: center;
   background-color: #1f1f1f;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #cf1b1b;
   padding: 0 20px;
   height: 80px;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+
+  @media (max-width: 1024px) {
+    padding: 0 10px;
+  }
 
   @media (max-width: 480px) {
     flex-direction: column;
@@ -90,6 +94,11 @@ const Wrapper = styled.div`
 const LogoImage = styled.img`
   width: 70px;
   height: 60px;
+
+  @media (max-width: 1024px) {
+    width: 50px;
+    height: 40px;
+  }
 
   @media (max-width: 480px) {
     width: 50px;
