@@ -31,3 +31,7 @@ This is my personal portfolio showcasing my skills and the projects I have worke
     ```bash
     npm run dev
     ```
+    
+4. Link to the project:
+https://dev-portfolio-nu-five.vercel.app/
+
