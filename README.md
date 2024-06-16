@@ -1,8 +1,33 @@
-# React + Vite
+### Description
+This is my personal portfolio showcasing my skills and the projects I have worked on. The site features an advanced design with animations created using Styled Components and other libraries.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Content
+- **Home**: Contains a welcome message.
+- **About**: A brief biography and professional experience.
+- **Skills**: A list of my technical skills and technologies I am proficient in.
+- **Projects**: An overview of some of the most important projects I have worked on.
+- **Contact**: Information on how to get in touch with me.
 
-Currently, two official plugins are available:
+### Technologies
+- React
+- Styled Components
+- React Router
+- Redux
+- Particles.js
+- Framer Motion
+- React Icons
+- Anime.js
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Installation and Running
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/kris-985/portfolio.git
+    ```
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
+3. Run the application:
+    ```bash
+    npm run dev
+    ```
