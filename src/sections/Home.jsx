@@ -1,47 +1,99 @@
 import { HashLink as Link } from "react-router-hash-link";
 import styled from "styled-components";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { Fragment } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import { home } from "../localizations/strings";
 import { avatar } from "../assets";
 import { useAppSelector } from "../store";
+import anime from "animejs";
+import { particleJs } from "../utils/helpers";
+import ScrollAnimation from "react-animate-on-scroll";
 
 export const Home = () => {
   const language = useAppSelector((state) => state.language.language);
   const label = home[language];
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const textList = ["React.js Developer", "Gym Addict", "Personal Trainer"];
+    let textIndex = 0;
+    let charIndex = 0;
+
+    const type = () => {
+      if (charIndex < textList[textIndex].length) {
+        textRef.current.innerHTML += textList[textIndex].charAt(charIndex);
+        charIndex++;
+        anime({
+          targets: textRef.current,
+          duration: 200,
+          easing: "easeInOutQuad",
+        });
+        setTimeout(type, 300);
+      } else {
+        setTimeout(() => {
+          charIndex = 0;
+          textIndex = (textIndex + 1) % textList.length;
+          textRef.current.innerHTML = "";
+          type();
+        }, 2000);
+      }
+    };
+
+    type();
+  }, []);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js";
+    script.onload = () => {
+      window.particlesJS("particles-js", particleJs);
+    };
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <Fragment>
-      <Container>
-        <HomeData>
-          <HomeTitle>
-            {label.hi} <span>{label.name}</span>
-          </HomeTitle>
-          <HomeButton to="#contacts" smooth>
-            {label.button}
-          </HomeButton>
-        </HomeData>
-        <Image src={avatar} alt="" />
-      </Container>
-      <IconsContainer>
-        <IconLink
-          href="https://www.linkedin.com/in/kristiyan-bakalov/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaLinkedin />
-        </IconLink>
-        <IconLink
-          href="https://github.com/kris-985"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaGithub />
-        </IconLink>
-      </IconsContainer>
+      <ScrollAnimation animateIn="fadeIn">
+        <ParticlesContainer id="particles-js"></ParticlesContainer>
+        <Container>
+          <HomeData>
+            <HomeTitle>
+              {label.hi}
+              <br />
+              <span>{label.name}</span>
+              <TextRef ref={textRef}></TextRef>
+            </HomeTitle>
+            <br />
+            <HomeButton to="#contacts" smooth>
+              {label.button}
+            </HomeButton>
+          </HomeData>
+          <ImageContainer>
+            <img src={avatar} alt="Avatar" />
+          </ImageContainer>
+        </Container>
+        <IconsContainer>
+          <IconLink to="https://www.linkedin.com/in/kristiyan-bakalov/">
+            <FaLinkedin />
+          </IconLink>
+          <IconLink to="https://github.com/kris-985">
+            <FaGithub />
+          </IconLink>
+        </IconsContainer>
+      </ScrollAnimation>
     </Fragment>
   );
 };
+
+const ParticlesContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+`;
 
 const Container = styled.div`
   display: flex;
@@ -51,7 +103,13 @@ const Container = styled.div`
   justify-content: space-around;
   padding: 20px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) and (min-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+  }
+
+  @media (max-width: 480px) {
     flex-direction: column;
     align-items: center;
     margin-top: 5rem;
@@ -64,7 +122,13 @@ const HomeData = styled.div`
   align-items: flex-start;
   max-width: 60%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) and (min-width: 480px) {
+    max-width: 80%;
+    align-items: center;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
     max-width: 100%;
     align-items: center;
     text-align: center;
@@ -79,9 +143,31 @@ const HomeTitle = styled.h1`
     display: block;
   }
 
-  @media (max-width: 768px) {
-    font-size: 36px;
+  .TypeWriter {
+    font-size: 45px;
+    color: white;
+    margin-top: 20px;
   }
+
+  @media (max-width: 1024px) and (min-width: 480px) {
+    font-size: 42px;
+
+    .TypeWriter {
+      font-size: 36px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    font-size: 36px;
+
+    .TypeWriter {
+      font-size: 30px;
+    }
+  }
+`;
+
+const TextRef = styled.span`
+  min-width: 500px;
 `;
 
 const HomeButton = styled(Link)`
@@ -93,19 +179,45 @@ const HomeButton = styled(Link)`
   text-decoration: none;
   margin-top: 10px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) and (min-width: 480px) {
+    margin-top: 15px;
+  }
+
+  @media (max-width: 480px) {
     margin-top: 20px;
   }
 `;
 
-const Image = styled.img`
-  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-  object-fit: cover;
+const ImageContainer = styled.div`
+  position: relative;
+  display: inline-block;
   margin-top: 8rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) and (min-width: 480px) {
+    margin-top: 4rem;
+    width: 80%;
+  }
+
+  @media (max-width: 480px) {
     margin-top: 20px;
     width: 100%;
+  }
+
+  img {
+    clip-path: polygon(
+      20% 0%,
+      80% 0%,
+      100% 20%,
+      100% 80%,
+      80% 100%,
+      20% 100%,
+      0% 80%,
+      0% 20%
+    );
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    border: 5px solid #cf1b1b;
   }
 `;
 
@@ -116,14 +228,20 @@ const IconsContainer = styled.div`
   margin-top: 50px;
   margin-left: 16.5rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) and (min-width: 480px) {
+    margin-top: 40px;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  @media (max-width: 480px) {
     margin-top: 30px;
     margin-left: 0;
     justify-content: center;
   }
 `;
 
-const IconLink = styled.a`
+const IconLink = styled(Link)`
   font-size: 2em;
   color: white;
 

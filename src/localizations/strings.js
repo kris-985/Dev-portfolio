@@ -16,8 +16,8 @@ export const navBar = {
 };
 
 export const home = {
-  bg: { hi: "Здравейте,", name: "Аз съм Кристиян", button: "Контакти" },
-  en: { hi: "Hi,", name: "I'm Kristiyan", button: "Contacts" },
+  bg: { hi: "Здравейте,", name: "Аз съм Кристиян,", button: "Контакти" },
+  en: { hi: "Hi,", name: "I'm Kristiyan,", button: "Contacts" },
 };
 
 export const about = {
@@ -53,8 +53,8 @@ export const contacts = {
       "If you enjoyed my project and would like to collaborate, feel free to reach out to me.",
   },
 };
- 
+
 export const footer = {
   bg: { name: "Кристиян", copyright: "Всички права запазени" },
-  en: { name: "Kristiyan", copyright: "copyright all rights reserved"},
+  en: { name: "Kristiyan", copyright: "copyright all rights reserved" },
 };
