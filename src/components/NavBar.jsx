@@ -162,6 +162,10 @@ const FlagImg = styled.img`
   width: 40px;
   height: 40px;
   cursor: pointer;
+  color: #cf1b1b;
+  display: none;
+  animation: ${({ extendBar }) => (extendBar ? fadeIn : fadeOut)} 0.3s ease-in-out;
+
 
   @media (max-width: 480px) {
     display: none;
