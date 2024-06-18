@@ -172,7 +172,7 @@ const fadeOut = keyframes`
 
 const MenuWrapper = styled.span`
   cursor: pointer;
-  color: white;
+  color: #cf1b1b;
   display: none;
   animation: ${({ extendBar }) => (extendBar ? fadeIn : fadeOut)} 0.3s ease-in-out;
 
