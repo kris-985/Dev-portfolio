@@ -148,28 +148,6 @@ const FlagImg = styled.img`
   cursor: pointer;
 `;
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: rotate(-90deg);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(0deg);
-  }
-`;
-
-const fadeOut = keyframes`
-  from {
-    opacity: 1;
-    transform: rotate(0deg);
-  }
-  to {
-    opacity: 0;
-    transform: rotate(90deg);
-  }
-`;
-
 const MenuWrapper = styled.span`
   cursor: pointer;
   color: #cf1b1b;
