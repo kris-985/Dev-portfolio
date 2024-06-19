@@ -120,11 +120,11 @@ const Navlink = styled(Link)`
   font-size: 20px;
   cursor: pointer;
   margin-right: 40px;
-  border-bottom: ${({ active }) => (active ? "2px solid red" : "none")};
+  border-bottom: ${({ active }) => (active ? "2px solid #cf1b1b" : "none")};
 
   &:hover {
-    color: red;
-  }
+    border-bottom: 2px solid #cf1b1b;
+    }
 
   @media (max-width: 480px) {
     margin: 10px 0;
@@ -143,8 +143,8 @@ const Flag = styled.div`
 `;
 
 const FlagImg = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
 `;
 
@@ -174,8 +174,7 @@ const MenuWrapper = styled.span`
   cursor: pointer;
   color: #cf1b1b;
   display: none;
-  animation: ${({ extendBar }) => (extendBar ? fadeIn : fadeOut)} 0.3s
-    ease-in-out;
+  animation: ${({ extendBar }) => (extendBar ? fadeIn : fadeOut)} 0.3s ease-in-out;
 
   @media (max-width: 480px) {
     display: block;

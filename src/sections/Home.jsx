@@ -143,26 +143,12 @@ const HomeTitle = styled.h1`
     display: block;
   }
 
-  .TypeWriter {
-    font-size: 45px;
-    color: white;
-    margin-top: 20px;
-  }
-
   @media (max-width: 1024px) and (min-width: 480px) {
     font-size: 42px;
-
-    .TypeWriter {
-      font-size: 36px;
-    }
   }
 
   @media (max-width: 480px) {
     font-size: 36px;
-
-    .TypeWriter {
-      font-size: 30px;
-    }
   }
 `;
 
@@ -204,20 +190,10 @@ const ImageContainer = styled.div`
   }
 
   img {
-    clip-path: polygon(
-      20% 0%,
-      80% 0%,
-      100% 20%,
-      100% 80%,
-      80% 100%,
-      20% 100%,
-      0% 80%,
-      0% 20%
-    );
     object-fit: cover;
     display: block;
     width: 100%;
-    border: 5px solid #cf1b1b;
+    box-shadow: 10px 10px 0 0 #cf1b1b;
   }
 `;
 
