@@ -1,14 +1,20 @@
 import { Fragment } from "react";
 import { Home, About, Skills, Projects, Contacts } from "../sections";
+import styled from "styled-components";
 
 export const HomePage = () => {
   return (
-    <Fragment>
+    <PageContainer>
       <Home />
       <About />
       <Skills />
       <Projects />
       <Contacts />
-    </Fragment>
+    </PageContainer>
   );
 };
+
+const PageContainer = styled.div`
+  max-width: 100vw;
+  overflow: hidden;
+`;
