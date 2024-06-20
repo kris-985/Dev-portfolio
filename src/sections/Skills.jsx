@@ -50,15 +50,15 @@ export const Skills = () => {
 };
 
 const SkillsContainer = styled.div`
-  padding: 30px;
+  padding-top: 5rem;
   text-align: center;
 
-  @media (max-width: 768px) {
-    padding: 10px;
+  @media (max-width: 1024px) {
+    padding-top: 4rem;
   }
 
-  @media (max-width: 1024px) {
-    padding: 20px;
+  @media (max-width: 768px) {
+    padding-top: 3rem;
   }
 `;
 
@@ -68,13 +68,16 @@ const Title = styled.h1`
   text-decoration-color: #cf1b1b;
   font-size: 45px;
   margin-bottom: 20px;
-
-  @media (max-width: 480px) {
-    font-size: 24px;
-  }
+  padding-top: 5rem;
 
   @media (max-width: 768px) {
+    font-size: 30px;
+    padding-top: 5rem;
+  }
+
+  @media (max-width: 480px) {
     font-size: 28px;
+    padding-top: 5rem;
   }
 `;
 
@@ -115,12 +118,12 @@ const SkillItem = styled.div`
     color: #cf1b1b;
   }
 
-  @media (max-width: 480px) {
-    font-size: 24px;
-  }
-
   @media (max-width: 768px) {
     font-size: 30px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
   }
 `;
 

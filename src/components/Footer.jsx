@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { footer } from "../localizations/strings";
 import { useAppSelector } from "../store";
+import { ScrollToTop } from "../sections";
 
 const icons = [
   <FaFacebookF key={1} />,
@@ -24,7 +25,9 @@ export const Footer = () => {
       <Copyright>
         © {new Date().getFullYear()} {label.copyright}
       </Copyright>
+      <ScrollToTop />
     </FooterContainer>
+    
   );
 };
 

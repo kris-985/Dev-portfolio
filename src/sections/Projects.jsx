@@ -33,18 +33,21 @@ const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 30px;
+  padding-top: 5rem; /* Adjust this value as necessary to account for the navigation bar */
 
   @media (max-width: 480px) {
     margin: 10px;
+    padding-top: 6rem; /* Adjust this value for mobile if the navigation bar height differs */
   }
 
   @media (max-width: 768px) {
     margin: 15px;
+    padding-top: 6.5rem; /* Adjust this value for tablets if necessary */
   }
 
   @media (max-width: 1024px) {
     margin: 20px;
+    padding-top: 7rem; /* Adjust this value for small desktops if necessary */
   }
 `;
 
@@ -54,7 +57,7 @@ const Title = styled.h1`
   text-decoration: underline;
   text-decoration-color: #cf1b1b;
   font-size: 45px;
-  margin-bottom: 20px;
+  margin-bottom: 3.5rem;
 
   @media (max-width: 480px) {
     font-size: 24px;

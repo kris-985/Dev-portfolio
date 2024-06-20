@@ -9,7 +9,7 @@ export const About = () => {
   const label = about[language];
 
   return (
-    <ScrollAnimation animateIn="flipInX" delay={300}>
+    <ScrollAnimation animateIn="flipInX" >
       <AboutUsContainer id="about">
         <AboutUsHeader>{label.header}</AboutUsHeader>
         <AboutUsContent>
@@ -27,21 +27,18 @@ const AboutUsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
-  gap: 30px;
+  padding-top: 5rem; /* Standardized padding */
 
   @media (max-width: 1024px) {
-    padding: 40px;
+    padding-top: 2.5rem;
   }
 
   @media (max-width: 768px) {
-    padding: 20px;
-    gap: 20px;
+    padding-top: 1.5rem;
   }
 
   @media (max-width: 480px) {
-    padding: 10px;
-    gap: 15px;
+    padding-top: 1rem;
   }
 `;
 
@@ -51,18 +48,22 @@ const AboutUsHeader = styled.div`
   text-decoration-color: #cf1b1b;
   font-size: 45px;
   margin-bottom: 20px;
+  padding-top: 11rem; /* Added padding-top */
 
   @media (max-width: 1024px) {
     font-size: 38px;
+    padding-top: 10.5rem; /* Adjust padding for medium screens */
   }
 
   @media (max-width: 768px) {
-    font-size: 28px;
+    font-size: 33px;
     text-align: center;
+    padding-top: 9.5rem; /* Adjust padding for small screens */
   }
 
   @media (max-width: 480px) {
-    font-size: 24px;
+    font-size: 30px;
+    padding-top: 8.5rem; /* Adjust padding for extra small screens */
   }
 `;
 
@@ -72,7 +73,7 @@ const AboutUsContent = styled.div`
   align-items: center;
   max-width: 1200px;
   width: 100%;
-  gap: 30px;
+  gap: 20px; /* Standardized gap */
 
   @media (max-width: 1024px) {
     gap: 20px;
@@ -81,7 +82,6 @@ const AboutUsContent = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
   }
 `;
 
@@ -89,7 +89,8 @@ const AboutUsText = styled.div`
   color: white;
   font-size: 35px;
   flex: 1;
-  padding: 20px;
+  padding: 20px; /* Standardized padding */
+  text-align: center; /* Center text for consistency across devices */
 
   span {
     font-weight: bold;
@@ -100,8 +101,6 @@ const AboutUsText = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 10px;
-    text-align: center;
     font-size: 25px;
   }
 
@@ -113,35 +112,13 @@ const AboutUsText = styled.div`
 const AboutUsImage = styled.div`
   flex: 1;
   text-align: center;
-  object-fit: cover;
+  margin-top: 20px; /* Standardized margin */
 
   img {
-    width: 650px;
+    width: 100%;
     height: auto;
     display: block;
     border-radius: 5px;
     object-fit: cover;
-  }
-
-  @media (max-width: 1024px) {
-    img {
-      width: 550px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    margin-top: 20px;
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
-
-  @media (max-width: 480px) {
-    margin-top: 15px;
-    img {
-      width: 100%;
-      height: auto;
-    }
   }
 `;
