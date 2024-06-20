@@ -55,4 +55,20 @@ const ScrollButton = styled.div`
   &:hover {
     background-color: #cf1b1b;
   }
+
+  @media (max-width: 768px) {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  @media (max-width: 480px) {
+    bottom: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
 `;
