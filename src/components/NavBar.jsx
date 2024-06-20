@@ -28,6 +28,10 @@ export const NavBar = () => {
     dispatch(changeLanguage(lang));
   };
 
+  const handleNavLinkClick = () => {
+    setExtendBar(false);
+  };
+
   return (
     <Wrapper extendBar={extendBar}>
       <LogoImage src={icon} alt="Logo" />
@@ -35,19 +39,44 @@ export const NavBar = () => {
         {extendBar ? <AiOutlineClose size={25} /> : <AiOutlineMenu />}
       </MenuWrapper>
       <NavLinks extendBar={extendBar}>
-        <Navlink to="#" smooth active={activeLink === "#"}>
+        <Navlink
+          to="#"
+          smooth
+          active={activeLink === "#"}
+          onClick={handleNavLinkClick}
+        >
           {label.home}
         </Navlink>
-        <Navlink to="#about" smooth active={activeLink === "#about"}>
+        <Navlink
+          to="#about"
+          smooth
+          active={activeLink === "#about"}
+          onClick={handleNavLinkClick}
+        >
           {label.about}
         </Navlink>
-        <Navlink to="#skills" smooth active={activeLink === "#skills"}>
+        <Navlink
+          to="#skills"
+          smooth
+          active={activeLink === "#skills"}
+          onClick={handleNavLinkClick}
+        >
           {label.skills}
         </Navlink>
-        <Navlink to="#projects" smooth active={activeLink === "#projects"}>
+        <Navlink
+          to="#projects"
+          smooth
+          active={activeLink === "#projects"}
+          onClick={handleNavLinkClick}
+        >
           {label.projects}
         </Navlink>
-        <Navlink to="#contacts" smooth active={activeLink === "#contacts"}>
+        <Navlink
+          to="#contacts"
+          smooth
+          active={activeLink === "#contacts"}
+          onClick={handleNavLinkClick}
+        >
           {label.contacts}
         </Navlink>
       </NavLinks>
@@ -128,7 +157,7 @@ const Navlink = styled(Link)`
 
   &:hover {
     border-bottom: 2px solid #cf1b1b;
-    }
+  }
 
   @media (max-width: 480px) {
     margin: 10px 0;
@@ -164,7 +193,8 @@ const FlagImg = styled.img`
   cursor: pointer;
   color: #cf1b1b;
   display: none;
-  animation: ${({ extendBar }) => (extendBar ? fadeIn : fadeOut)} 0.3s ease-in-out;
+  animation: ${({ extendBar }) => (extendBar ? fadeIn : fadeOut)} 0.3s
+    ease-in-out;
 
 
   @media (max-width: 480px) {

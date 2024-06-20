@@ -31,7 +31,20 @@ const ContactsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 10rem;
+  padding-top: 12rem; /* Added padding-top for desktop */
+
+  @media (max-width: 1024px) {
+    padding-top: 10rem; /* Adjust padding-top for tablet */
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 8rem; /* Adjust padding-top for mobile */
+  }
+
+  @media (max-width: 480px) {
+    padding-top: 6rem; /* Adjust padding-top for small mobile */
+  }
 `;
 
 const Title = styled.h1`
@@ -39,7 +52,7 @@ const Title = styled.h1`
   text-align: center;
   text-decoration: underline;
   text-decoration-color: #cf1b1b;
-  font-size: 60px;
+  font-size: 45px;
   margin-bottom: 20px;
 
   @media (max-width: 1024px) {
@@ -58,7 +71,7 @@ const Title = styled.h1`
 const Description = styled.p`
   font-size: 50px;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 3.5rem;
   max-width: 800px;
   color: white;
 
@@ -102,3 +115,4 @@ const IconLink = styled(Link)`
     font-size: 30px;
   }
 `;
+

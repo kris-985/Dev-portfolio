@@ -101,7 +101,6 @@ const Container = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  padding: 20px;
 
   @media (max-width: 1024px) and (min-width: 480px) {
     flex-direction: column;
@@ -201,8 +200,8 @@ const IconsContainer = styled.div`
   display: flex;
   gap: 20px;
   justify-content: flex-start;
-  margin-top: 50px;
-  margin-left: 16.5rem;
+  margin-top: 4.5rem;
+  margin-left: 12.5rem;
 
   @media (max-width: 1024px) and (min-width: 480px) {
     margin-top: 40px;
