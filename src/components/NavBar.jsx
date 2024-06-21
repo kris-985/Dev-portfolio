@@ -80,12 +80,12 @@ export const NavBar = () => {
       <Flag>
         <FlagImg
           src={bulgaria}
-          alt="bg"
+          alt="BG"
           onClick={() => handleLanguageChange("bg")}
         />
         <FlagImg
           src={england}
-          alt="en"
+          alt="EN"
           onClick={() => handleLanguageChange("en")}
         />
       </Flag>
