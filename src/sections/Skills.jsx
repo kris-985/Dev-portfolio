@@ -71,12 +71,12 @@ const Title = styled.h1`
   padding-top: 5rem;
 
   @media (max-width: 768px) {
-    font-size: 30px;
+    font-size: 40px;
     padding-top: 5rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 28px;
+    font-size: 30px;
     padding-top: 5rem;
   }
 `;

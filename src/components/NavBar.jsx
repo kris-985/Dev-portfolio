@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { bg, en, icon } from "../assets";
+import { bulgaria, england, icon } from "../assets";
 import { HashLink as Link } from "react-router-hash-link";
 import { navBar } from "../localizations/strings";
 import { useLocation } from "react-router";
@@ -78,8 +78,16 @@ export const NavBar = () => {
         </Navlink>
       </NavLinks>
       <Flag>
-        <FlagImg src={bg} alt="BG" onClick={() => handleLanguageChange("bg")} />
-        <FlagImg src={en} alt="EN" onClick={() => handleLanguageChange("en")} />
+        <FlagImg
+          src={bulgaria}
+          alt="BG"
+          onClick={() => handleLanguageChange("bg")}
+        />
+        <FlagImg
+          src={england}
+          alt="EN"
+          onClick={() => handleLanguageChange("en")}
+        />
       </Flag>
       <MenuWrapper extendBar={extendBar} onClick={renderNavBar}>
         {extendBar ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
@@ -115,6 +123,7 @@ const Wrapper = styled.div`
 const LogoImage = styled.img`
   width: 70px;
   height: 60px;
+  animation: shine 4s infinite;
 
   @media (max-width: 1024px) {
     width: 50px;
@@ -127,6 +136,15 @@ const LogoImage = styled.img`
     position: absolute;
     top: 10px;
     left: 20px;
+  }
+
+  @keyframes shine {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
   }
 `;
 
@@ -160,7 +178,6 @@ const Navlink = styled(Link)`
     font-size: 16px;
   }
 `;
-
 const Flag = styled.div`
   display: flex;
   gap: 10px;
@@ -175,6 +192,25 @@ const FlagImg = styled.img`
   width: 45px;
   height: 45px;
   cursor: pointer;
+  animation: wave 2s infinite;
+
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 `;
 
 const fadeIn = keyframes`

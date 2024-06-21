@@ -27,7 +27,6 @@ const AboutUsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5rem; /* Standardized padding */
 
   @media (max-width: 1024px) {
     padding-top: 2.5rem;
@@ -48,22 +47,22 @@ const AboutUsHeader = styled.div`
   text-decoration-color: #cf1b1b;
   font-size: 45px;
   margin-bottom: 20px;
-  padding-top: 11rem; /* Added padding-top */
+  padding-top: 11rem; 
 
   @media (max-width: 1024px) {
-    font-size: 38px;
-    padding-top: 10.5rem; /* Adjust padding for medium screens */
+    font-size: 40px;
+    padding-top: 10.5rem; 
   }
 
   @media (max-width: 768px) {
-    font-size: 33px;
+    font-size: 35px;
     text-align: center;
-    padding-top: 9.5rem; /* Adjust padding for small screens */
+    padding-top: 9.5rem; 
   }
 
   @media (max-width: 480px) {
     font-size: 30px;
-    padding-top: 8.5rem; /* Adjust padding for extra small screens */
+    padding-top: 8.5rem; 
   }
 `;
 
@@ -73,7 +72,7 @@ const AboutUsContent = styled.div`
   align-items: center;
   max-width: 1200px;
   width: 100%;
-  gap: 20px; /* Standardized gap */
+  gap: 20px; 
 
   @media (max-width: 1024px) {
     gap: 20px;
@@ -89,8 +88,8 @@ const AboutUsText = styled.div`
   color: white;
   font-size: 35px;
   flex: 1;
-  padding: 20px; /* Standardized padding */
-  text-align: center; /* Center text for consistency across devices */
+  padding: 20px; 
+  text-align: center; 
 
   span {
     font-weight: bold;
@@ -112,8 +111,8 @@ const AboutUsText = styled.div`
 const AboutUsImage = styled.div`
   flex: 1;
   text-align: center;
-  margin-top: 20px; /* Standardized margin */
-
+  margin-top: 20px; 
+  
   img {
     width: 100%;
     height: auto;

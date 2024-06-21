@@ -51,6 +51,7 @@ const ScrollButton = styled.div`
   visibility: ${(props) => (props.isVisible ? 'visible' : 'hidden')};
   transition: opacity 0.5s, visibility 0.5s;
   z-index: 1000;
+  animation: moveUpDown 2s infinite;
 
   &:hover {
     background-color: #cf1b1b;
@@ -70,5 +71,14 @@ const ScrollButton = styled.div`
     width: 30px;
     height: 30px;
     font-size: 16px;
+  }
+
+  @keyframes moveUpDown {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 `;
