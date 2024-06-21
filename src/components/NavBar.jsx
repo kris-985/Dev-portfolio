@@ -80,12 +80,12 @@ export const NavBar = () => {
       <Flag>
         <FlagImg
           src={bulgaria}
-          alt="BG"
+          alt="bg"
           onClick={() => handleLanguageChange("bg")}
         />
         <FlagImg
           src={england}
-          alt="EN"
+          alt="en"
           onClick={() => handleLanguageChange("en")}
         />
       </Flag>
@@ -192,25 +192,6 @@ const FlagImg = styled.img`
   width: 45px;
   height: 45px;
   cursor: pointer;
-  animation: wave 2s infinite;
-
-  @keyframes wave {
-    0% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(5deg);
-    }
-    50% {
-      transform: rotate(0deg);
-    }
-    75% {
-      transform: rotate(-5deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
-  }
 `;
 
 const fadeIn = keyframes`
