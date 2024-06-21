@@ -18,9 +18,6 @@ This is my personal portfolio showcasing my skills and the projects I have worke
 - React Icons
 - Anime.js
 
-### Link to the project
-https://dev-portfolio-nu-five.vercel.app/
-
 ### Installation and Running
 1. Clone the repository:
     ```bash
