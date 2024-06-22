@@ -31,19 +31,18 @@ const ContactsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10rem;
-  padding-top: 12rem; /* Added padding-top for desktop */
+  padding: 8rem;
 
   @media (max-width: 1024px) {
-    padding-top: 10rem; /* Adjust padding-top for tablet */
+    padding-top: 10rem; 
   }
 
   @media (max-width: 768px) {
-    padding-top: 8rem; /* Adjust padding-top for mobile */
+    padding-top: 8rem; 
   }
 
   @media (max-width: 480px) {
-    padding-top: 6rem; /* Adjust padding-top for small mobile */
+    padding-top: 6rem; 
   }
 `;
 
@@ -53,18 +52,18 @@ const Title = styled.h1`
   text-decoration: underline;
   text-decoration-color: #cf1b1b;
   font-size: 45px;
-  margin-bottom: 20px;
+  margin-bottom: 2.5rem;
 
   @media (max-width: 1024px) {
-    font-size: 50px;
-  }
-
-  @media (max-width: 768px) {
     font-size: 40px;
   }
 
+  @media (max-width: 768px) {
+    font-size: 35px;
+  }
+
   @media (max-width: 480px) {
-    font-size: 28px;
+    font-size: 30px;
   }
 `;
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { bg, en, icon } from "../assets";
+import { bulgaria, england, icon } from "../assets";
 import { HashLink as Link } from "react-router-hash-link";
 import { navBar } from "../localizations/strings";
 import { useLocation } from "react-router";
@@ -82,12 +82,12 @@ export const NavBar = () => {
       </NavLinks>
       <Flag>
         <FlagImg
-          src={bg}
+          src={bulgaria}
           alt="BG"
           onClick={() => handleLanguageChange("bg")}
         />
         <FlagImg
-          src={en}
+          src={england}
           alt="EN"
           onClick={() => handleLanguageChange("en")}
         />
@@ -123,6 +123,7 @@ const Wrapper = styled.div`
 const LogoImage = styled.img`
   width: 70px;
   height: 60px;
+  animation: shine 4s infinite;
 
   @media (max-width: 1024px) {
     width: 50px;
@@ -132,6 +133,15 @@ const LogoImage = styled.img`
   @media (max-width: 480px) {
     width: 50px;
     height: 40px;
+  }
+
+  @keyframes shine {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
   }
 `;
 
@@ -164,6 +174,23 @@ const Navlink = styled(Link)`
     font-size: 16px;
   }
 `;
+const wave = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+`;
 
 const MenuWrapper = styled.span`
   cursor: pointer;
@@ -178,24 +205,26 @@ const MenuWrapper = styled.span`
   }
 `;
 
-const Flag = styled.div`
-  display: flex;
-  gap: 10px;
-
-  @media (max-width: 480px) {
-    display: none;
-  }
-`;
-
 const FlagImg = styled.img`
   width: 45px;
   height: 45px;
   cursor: pointer;
-  color: #cf1b1b;
-  display: none;
-  animation: ${({ extendBar }) => (extendBar ? fadeIn : fadeOut)} 0.3s
-    ease-in-out;
+  animation: ${wave} 2s infinite;
+`;
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+`;
+const Flag = styled.div`
+  display: flex;
+  gap: 10px;
 
   @media (max-width: 480px) {
     display: none;
