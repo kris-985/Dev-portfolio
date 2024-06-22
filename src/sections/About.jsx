@@ -9,7 +9,7 @@ export const About = () => {
   const label = about[language];
 
   return (
-    <ScrollAnimation animateIn="flipInX" >
+    <ScrollAnimation animateIn="flipInY" >
       <AboutUsContainer id="about">
         <AboutUsHeader>{label.header}</AboutUsHeader>
         <AboutUsContent>
@@ -46,7 +46,7 @@ const AboutUsHeader = styled.div`
   text-decoration: underline;
   text-decoration-color: #cf1b1b;
   font-size: 45px;
-  margin-bottom: 20px;
+  margin-bottom: 2.5rem;
   padding-top: 11rem; 
 
   @media (max-width: 1024px) {

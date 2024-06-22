@@ -52,7 +52,7 @@ const Title = styled.h1`
   text-decoration: underline;
   text-decoration-color: #cf1b1b;
   font-size: 45px;
-  margin-bottom: 20px;
+  margin-bottom: 2.5rem;
 
   @media (max-width: 1024px) {
     font-size: 40px;
