@@ -178,6 +178,24 @@ const Navlink = styled(Link)`
     font-size: 16px;
   }
 `;
+const wave = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+`;
+
 const Flag = styled.div`
   display: flex;
   gap: 10px;
@@ -192,6 +210,7 @@ const FlagImg = styled.img`
   width: 45px;
   height: 45px;
   cursor: pointer;
+  animation: ${wave} 2s infinite;
 `;
 
 const fadeIn = keyframes`
