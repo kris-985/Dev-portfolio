@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { bulgaria, england, icon } from "../assets";
 import { HashLink as Link } from "react-router-hash-link";
@@ -33,6 +33,9 @@ export const NavBar = () => {
       <Navlink to="#" smooth isLogo={true}>
         <LogoImage src={icon} alt="Logo" />
       </Navlink>
+      <MenuWrapper onClick={renderNavBar}>
+        {extendBar ? <AiOutlineClose size={25} /> : <AiOutlineMenu />}
+      </MenuWrapper>
       <NavLinks extendBar={extendBar}>
         <Navlink
           to="#"
@@ -87,16 +90,13 @@ export const NavBar = () => {
           onClick={() => handleLanguageChange("en")}
         />
       </Flag>
-      <MenuWrapper extendBar={extendBar} onClick={renderNavBar}>
-        {extendBar ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
-      </MenuWrapper>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   background-color: #1f1f1f;
   border-bottom: 2px solid #cf1b1b;
@@ -112,9 +112,9 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 480px) {
-    height: ${({ extendBar }) => (extendBar ? "260px" : "65px")};
-    padding: 0 20px;
     flex-direction: column;
+    height: ${({ extendBar }) => (extendBar ? "240px" : "60px")};
+    padding: ${({ extendBar }) => (extendBar ? "10px 0" : "0 20px")};
   }
 `;
 
@@ -140,9 +140,6 @@ const LogoImage = styled.img`
   @media (max-width: 480px) {
     width: 50px;
     height: 40px;
-    position: absolute;
-    top: 10px;
-    left: 20px;
   }
 `;
 
@@ -154,7 +151,6 @@ const NavLinks = styled.div`
     flex-direction: column;
     width: 100%;
     display: ${({ extendBar }) => (extendBar ? "flex" : "none")};
-    margin-top: 60px;
   }
 `;
 
@@ -195,13 +191,16 @@ const wave = keyframes`
   }
 `;
 
-const Flag = styled.div`
-  display: flex;
-  gap: 10px;
+const MenuWrapper = styled.span`
+  cursor: pointer;
+  color: white;
+  display: none;
 
   @media (max-width: 480px) {
+    display: block;
     position: absolute;
     top: 10px;
+    right: 20px;
   }
 `;
 
@@ -222,29 +221,11 @@ const fadeIn = keyframes`
     transform: rotate(0deg);
   }
 `;
-
-const fadeOut = keyframes`
-  from {
-    opacity: 1;
-    transform: rotate(0deg);
-  }
-  to {
-    opacity: 0;
-    transform: rotate(90deg);
-  }
-`;
-
-const MenuWrapper = styled.span`
-  cursor: pointer;
-  color: #cf1b1b;
-  display: none;
-  animation: ${({ extendBar }) => (extendBar ? fadeIn : fadeOut)} 0.3s
-    ease-in-out;
+const Flag = styled.div`
+  display: flex;
+  gap: 10px;
 
   @media (max-width: 480px) {
-    display: block;
-    position: absolute;
-    top: 17px;
-    right: 20px;
+    display: none;
   }
 `;
