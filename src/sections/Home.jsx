@@ -102,13 +102,13 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-around;
 
-  @media (max-width: 1024px) and (min-width: 480px) {
+  @media (max-width: 480px) {
     flex-direction: column;
     align-items: center;
     margin-top: 5rem;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) and (min-width: 480px) {
     flex-direction: column;
     align-items: center;
     margin-top: 5rem;
@@ -121,14 +121,14 @@ const HomeData = styled.div`
   align-items: flex-start;
   max-width: 60%;
 
-  @media (max-width: 1024px) and (min-width: 480px) {
-    max-width: 80%;
+  @media (max-width: 480px) {
+    max-width: 100%;
     align-items: center;
     text-align: center;
   }
 
-  @media (max-width: 480px) {
-    max-width: 100%;
+  @media (max-width: 1024px) and (min-width: 480px) {
+    max-width: 80%;
     align-items: center;
     text-align: center;
   }
@@ -142,12 +142,12 @@ const HomeTitle = styled.h1`
     display: block;
   }
 
-  @media (max-width: 1024px) and (min-width: 480px) {
-    font-size: 42px;
-  }
-
   @media (max-width: 480px) {
     font-size: 36px;
+  }
+
+  @media (max-width: 1024px) and (min-width: 480px) {
+    font-size: 42px;
   }
 `;
 
@@ -164,12 +164,12 @@ const HomeButton = styled(Link)`
   text-decoration: none;
   margin-top: 10px;
 
-  @media (max-width: 1024px) and (min-width: 480px) {
-    margin-top: 15px;
-  }
-
   @media (max-width: 480px) {
     margin-top: 20px;
+  }
+
+  @media (max-width: 1024px) and (min-width: 480px) {
+    margin-top: 15px;
   }
 `;
 
@@ -178,14 +178,14 @@ const ImageContainer = styled.div`
   display: inline-block;
   margin-top: 8rem;
 
-  @media (max-width: 1024px) and (min-width: 480px) {
-    margin-top: 4rem;
-    width: 80%;
-  }
-
   @media (max-width: 480px) {
     margin-top: 20px;
     width: 100%;
+  }
+
+  @media (max-width: 1024px) and (min-width: 480px) {
+    margin-top: 4rem;
+    width: 80%;
   }
 
   img {
@@ -203,14 +203,14 @@ const IconsContainer = styled.div`
   margin-top: 4.5rem;
   margin-left: 12.5rem;
 
-  @media (max-width: 1024px) and (min-width: 480px) {
-    margin-top: 40px;
+  @media (max-width: 480px) {
+    margin-top: 30px;
     margin-left: 0;
     justify-content: center;
   }
 
-  @media (max-width: 480px) {
-    margin-top: 30px;
+  @media (max-width: 1024px) and (min-width: 480px) {
+    margin-top: 40px;
     margin-left: 0;
     justify-content: center;
   }

@@ -33,12 +33,12 @@ const ContactsContainer = styled.div`
   align-items: center;
   padding: 8rem;
 
-  @media (max-width: 1024px) {
-    padding-top: 10rem; 
-  }
-
   @media (max-width: 480px) {
     padding-top: 6rem; 
+  }
+
+  @media (max-width: 1024px) {
+    padding-top: 10rem; 
   }
 `;
 
@@ -50,16 +50,16 @@ const Title = styled.h1`
   font-size: 45px;
   margin-bottom: 2.5rem;
 
-  @media (max-width: 1024px) {
-    font-size: 40px;
+  @media (max-width: 480px) {
+    font-size: 30px;
   }
 
   @media (max-width: 768px) {
     font-size: 35px;
   }
 
-  @media (max-width: 480px) {
-    font-size: 30px;
+  @media (max-width: 1024px) {
+    font-size: 40px;
   }
 `;
 
@@ -70,8 +70,8 @@ const Description = styled.p`
   max-width: 800px;
   color: white;
 
-  @media (max-width: 1024px) {
-    font-size: 40px;
+  @media (max-width: 480px) {
+    font-size: 24px;
   }
 
   @media (max-width: 768px) {
@@ -79,8 +79,8 @@ const Description = styled.p`
     text-align: center;
   }
 
-  @media (max-width: 480px) {
-    font-size: 24px;
+  @media (max-width: 1024px) {
+    font-size: 40px;
   }
 `;
 
@@ -98,16 +98,16 @@ const IconLink = styled(Link)`
     color: #cf1b1b;
   }
 
-  @media (max-width: 1024px) {
-    font-size: 50px;
+  @media (max-width: 480px) {
+    font-size: 30px;
   }
 
   @media (max-width: 768px) {
     font-size: 40px;
   }
 
-  @media (max-width: 480px) {
-    font-size: 30px;
+  @media (max-width: 1024px) {
+    font-size: 50px;
   }
 `;
 

@@ -35,9 +35,9 @@ const ProjectsContainer = styled.div`
   align-items: center;
   padding-top: 7rem; 
 
-  @media (max-width: 1024px) {
-    margin: 20px;
-    padding-top: 7rem; 
+  @media (max-width: 480px) {
+    margin: 10px;
+    padding-top: 6rem; 
   }
 
   @media (max-width: 768px) {
@@ -45,12 +45,10 @@ const ProjectsContainer = styled.div`
     padding-top: 6.5rem; 
   }
 
-  @media (max-width: 480px) {
-    margin: 10px;
-    padding-top: 6rem; 
+  @media (max-width: 1024px) {
+    margin: 20px;
+    padding-top: 7rem; 
   }
-
-
 `;
 
 const Title = styled.h1`
@@ -61,18 +59,17 @@ const Title = styled.h1`
   font-size: 45px;
   margin-bottom: 3.5rem;
 
-  @media (max-width: 1024px) {
-    font-size: 40px;
-  }
-  @media (max-width: 768px) {
-    font-size: 35px;
-  }
-
   @media (max-width: 480px) {
     font-size: 30px;
   }
 
+  @media (max-width: 768px) {
+    font-size: 35px;
+  }
 
+  @media (max-width: 1024px) {
+    font-size: 40px;
+  }
 `;
 
 const ImagesWrapper = styled.div`
@@ -81,19 +78,17 @@ const ImagesWrapper = styled.div`
   gap: 30px;
   flex-wrap: wrap;
 
-  @media (max-width: 1024px) {
-    gap: 20px;
+  @media (max-width: 480px) {
+    gap: 10px;
   }
 
   @media (max-width: 768px) {
     gap: 15px;
   }
 
-  @media (max-width: 480px) {
-    gap: 10px;
+  @media (max-width: 1024px) {
+    gap: 20px;
   }
-
-
 `;
 
 const ProjectImage = styled(Link)`
@@ -103,22 +98,20 @@ const ProjectImage = styled(Link)`
   width: 400px;
   height: 400px;
 
-  @media (max-width: 1024px) {
-    width: 300px;
-    height: 300px;
-  }
-  
-  @media (max-width: 768px) {
-    width: 200px;
-    height: 200px;
-  }
-
   @media (max-width: 480px) {
     width: 150px;
     height: 150px;
   }
 
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 200px;
+  }
 
+  @media (max-width: 1024px) {
+    width: 300px;
+    height: 300px;
+  }
 `;
 
 const Image = styled.img`

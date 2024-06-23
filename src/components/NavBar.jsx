@@ -107,15 +107,16 @@ const Wrapper = styled.div`
   top: 0;
   z-index: 1000;
 
-  @media (max-width: 1024px) {
-    padding: 0 10px;
-  }
-
   @media (max-width: 480px) {
     flex-direction: column;
     height: ${({ extendBar }) => (extendBar ? "240px" : "60px")};
     padding: ${({ extendBar }) => (extendBar ? "10px 0" : "0 20px")};
   }
+
+  @media (max-width: 1024px) {
+    padding: 0 10px;
+  }
+
 `;
 
 const shine = keyframes`
@@ -131,17 +132,18 @@ const LogoImage = styled.img`
   width: 70px;
   height: 60px;
   animation: ${shine} 4s infinite;
+  
+  @media (max-width: 480px) {
+    width: 50px;
+    height: 40px;
+  }
 
   @media (max-width: 1024px) {
     width: 50px;
     height: 40px;
   }
-
-  @media (max-width: 480px) {
-    width: 50px;
-    height: 40px;
-  }
 `;
+
 
 const NavLinks = styled.div`
   display: flex;
@@ -151,7 +153,8 @@ const NavLinks = styled.div`
     flex-direction: column;
     width: 100%;
     display: ${({ extendBar }) => (extendBar ? "flex" : "none")};
-  }
+    margin-top: 40px;
+    }
 `;
 
 const Navlink = styled(Link)`
