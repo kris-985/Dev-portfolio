@@ -23,7 +23,7 @@ export const home = {
 export const about = {
   bg: {
     header: "За мен",
-    text: "Страстен млад front-end разработчик с усет към създаването на завладяващи потребителски изживявания. Професионален в React и желаещ да допринесе с иновативни решения. Посветен на непрекъснато учене и развитие в постоянно променящия се свят на уеб разработката.",
+    text: "Страстен млад front-end разработчик с усет към създаването на завладяващи потребителски изживявания. React ентусиаст и желаещ да допринесе с иновативни решения. Посветен на непрекъснато учене и развитие в постоянно променящия се свят на уеб разработката.",
   },
   en: {
     header: "About",
@@ -56,5 +56,5 @@ export const contacts = {
 
 export const footer = {
   bg: { name: "Кристиян", copyright: "Всички права запазени" },
-  en: { name: "Kristiyan", copyright: "copyright all rights reserved" },
+  en: { name: "Kristiyan", copyright: "Copyright all rights reserved" },
 };

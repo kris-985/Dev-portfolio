@@ -113,3 +113,10 @@ export const particleJs = {
       background_size: "cover",
     },
   }
+
+  export const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };

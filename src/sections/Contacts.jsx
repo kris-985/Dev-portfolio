@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { contacts } from "../localizations/strings";
-import { useAppSelector } from "../store";
+import { useSelector } from "react-redux";
 import ScrollAnimation from "react-animate-on-scroll";
 import { Link } from "react-router-dom";
 
 export const Contacts = () => {
-  const language = useAppSelector((state) => state.language.language);
+  const language = useSelector((state) => state.language.language);
   const label = contacts[language];
 
   return (
@@ -35,10 +35,6 @@ const ContactsContainer = styled.div`
 
   @media (max-width: 1024px) {
     padding-top: 10rem; 
-  }
-
-  @media (max-width: 768px) {
-    padding-top: 8rem; 
   }
 
   @media (max-width: 480px) {

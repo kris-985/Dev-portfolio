@@ -6,35 +6,33 @@ import { HashLink as Link } from "react-router-hash-link";
 import { navBar } from "../localizations/strings";
 import { useLocation } from "react-router";
 import { changeLanguage } from "../reducers/languageReducer";
-import { useAppDispatch, useAppSelector } from "../store";
+import { useDispatch, useSelector } from "react-redux";
 
 export const NavBar = () => {
-  const [extendBar, setExtendBar] = useState(false);
-  const language = useAppSelector((state) => state.language.language);
-  const label = navBar[language];
   const location = useLocation();
+  const [extendBar, setExtendBar] = useState(false);
   const [activeLink, setActiveLink] = useState(location.hash || "#");
-  const dispatch = useAppDispatch();
+  const language = useSelector((state) => state.language.language);
+  const dispatch = useDispatch();
+  const label = navBar[language];
 
   useEffect(() => {
     setActiveLink(location.hash || "#");
   }, [location]);
 
-  const renderNavBar = () => {
-    setExtendBar(!extendBar);
-  };
+  const renderNavBar = () => setExtendBar(!extendBar);
 
   const handleLanguageChange = (lang) => {
     dispatch(changeLanguage(lang));
   };
 
-  const handleNavLinkClick = () => {
-    setExtendBar(false);
-  };
+  const handleNavLinkClick = () => setExtendBar(false);
 
   return (
     <Wrapper extendBar={extendBar}>
-      <LogoImage src={icon} alt="Logo" />
+      <Navlink to="#" smooth isLogo={true}>
+        <LogoImage src={icon} alt="Logo" />
+      </Navlink>
       <MenuWrapper onClick={renderNavBar}>
         {extendBar ? <AiOutlineClose size={25} /> : <AiOutlineMenu />}
       </MenuWrapper>
@@ -120,10 +118,19 @@ const Wrapper = styled.div`
   }
 `;
 
+const shine = keyframes`
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }`;
+
 const LogoImage = styled.img`
   width: 70px;
   height: 60px;
-  animation: shine 4s infinite;
+  animation: ${shine} 4s infinite;
 
   @media (max-width: 1024px) {
     width: 50px;
@@ -133,15 +140,6 @@ const LogoImage = styled.img`
   @media (max-width: 480px) {
     width: 50px;
     height: 40px;
-  }
-
-  @keyframes shine {
-    0%, 100% {
-      box-shadow: 0 0 5px rgba(255, 255, 255, 0);
-    }
-    50% {
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    }
   }
 `;
 
@@ -166,7 +164,7 @@ const Navlink = styled(Link)`
   border-bottom: ${({ active }) => (active ? "2px solid #cf1b1b" : "none")};
 
   &:hover {
-    border-bottom: 2px solid #cf1b1b;
+    border-bottom: ${({ isLogo }) => (isLogo ? "none" : "2px solid #cf1b1b ")};
   }
 
   @media (max-width: 480px) {
@@ -174,6 +172,7 @@ const Navlink = styled(Link)`
     font-size: 16px;
   }
 `;
+
 const wave = keyframes`
   0% {
     transform: rotate(0deg);
