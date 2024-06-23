@@ -4,13 +4,13 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { Fragment, useEffect, useRef } from "react";
 import { home } from "../localizations/strings";
 import { avatar } from "../assets";
-import { useAppSelector } from "../store";
+import { useSelector } from "react-redux";
 import anime from "animejs";
 import { particleJs } from "../utils/helpers";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export const Home = () => {
-  const language = useAppSelector((state) => state.language.language);
+  const language = useSelector((state) => state.language.language);
   const label = home[language];
   const textRef = useRef(null);
 

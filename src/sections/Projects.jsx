@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { cake, krisfit9, movie } from "../assets";
 import { projects } from "../localizations/strings";
-import { useAppSelector } from "../store";
+import { useSelector } from "react-redux";
 import ScrollAnimation from "react-animate-on-scroll";
 import { Link } from "react-router-dom";
 
 export const Projects = () => {
-  const language = useAppSelector((state) => state.language.language);
+  const language = useSelector((state) => state.language.language);
   const label = projects[language];
 
   return (

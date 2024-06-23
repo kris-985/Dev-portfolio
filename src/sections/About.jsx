@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { about } from "../localizations/strings";
-import { useAppSelector } from "../store";
+import { useSelector } from "react-redux";
 import { react } from "../assets";
 import ScrollAnimation from "react-animate-on-scroll";
 
 export const About = () => {
-  const language = useAppSelector((state) => state.language.language);
+  const language = useSelector((state) => state.language.language);
   const label = about[language];
 
   return (

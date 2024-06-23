@@ -3,7 +3,7 @@ import { FaJs, FaReact } from "react-icons/fa";
 import { SiRedux, SiTailwindcss, SiStyledcomponents } from "react-icons/si";
 import { DiFirebase } from "react-icons/di";
 import { skills } from "../localizations/strings";
-import { useAppSelector } from "../store";
+import { useSelector } from "react-redux";
 import ScrollAnimation from "react-animate-on-scroll";
 
 const skillsLeft = [
@@ -19,7 +19,7 @@ const skillsRight = [
 ];
 
 export const Skills = () => {
-  const language = useAppSelector((state) => state.language.language);
+  const language = useSelector((state) => state.language.language);
   const label = skills[language];
 
   return (
