@@ -37,10 +37,6 @@ const ContactsContainer = styled.div`
     padding-top: 10rem; 
   }
 
-  @media (max-width: 768px) {
-    padding-top: 8rem; 
-  }
-
   @media (max-width: 480px) {
     padding-top: 6rem; 
   }

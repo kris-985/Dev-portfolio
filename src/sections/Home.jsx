@@ -55,7 +55,7 @@ export const Home = () => {
   return (
     <Fragment>
       <ScrollAnimation animateIn="fadeIn">
-        <ParticlesContainer id="particles-js"></ParticlesContainer>
+        <ParticlesContainer id="particles-js"/>
         <Container>
           <HomeData>
             <HomeTitle>

@@ -1,6 +1,6 @@
 import { useState, useEffect, Fragment } from "react";
 import { Routes, Route } from "react-router-dom";
-import { NavBar, Footer } from "./components";
+import { NavBar, Footer, ScrollToTop } from "./components";
 import "./index.css";
 import { HomePage } from "./pages";
 import { motion } from "framer-motion";
@@ -31,12 +31,11 @@ const App = () => {
       ) : (
         <Fragment>
           <NavBar />
-          <AppContainer>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-            </Routes>
-          </AppContainer>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+          </Routes>
           <Footer />
+          <ScrollToTop />
         </Fragment>
       )}
     </Fragment>
@@ -53,8 +52,4 @@ const WelcomeContainer = styled(motion.div)`
   font-size: 3rem;
   background-color: black;
   color: white;
-`;
-
-const AppContainer = styled.div`
-  padding: 20px;
 `;

@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { Home, About, Skills, Projects, Contacts } from "../sections";
 import styled from "styled-components";
 
