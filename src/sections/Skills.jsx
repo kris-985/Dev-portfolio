@@ -53,12 +53,12 @@ const SkillsContainer = styled.div`
   padding-top: 5rem;
   text-align: center;
 
-  @media (max-width: 1024px) {
-    padding-top: 4rem;
-  }
-
   @media (max-width: 768px) {
     padding-top: 3rem;
+  }
+
+  @media (max-width: 1024px) {
+    padding-top: 4rem;
   }
 `;
 
@@ -70,13 +70,13 @@ const Title = styled.h1`
   margin-bottom: 2.5rem;
   padding-top: 5rem;
 
-  @media (max-width: 768px) {
-    font-size: 40px;
+  @media (max-width: 480px) {
+    font-size: 30px;
     padding-top: 5rem;
   }
 
-  @media (max-width: 480px) {
-    font-size: 30px;
+  @media (max-width: 768px) {
+    font-size: 40px;
     padding-top: 5rem;
   }
 `;
@@ -118,12 +118,12 @@ const SkillItem = styled.div`
     color: #cf1b1b;
   }
 
-  @media (max-width: 768px) {
-    font-size: 30px;
-  }
-
   @media (max-width: 480px) {
     font-size: 24px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 30px;
   }
 `;
 

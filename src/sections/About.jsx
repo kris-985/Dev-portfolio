@@ -28,17 +28,19 @@ const AboutUsContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media (max-width: 1024px) {
-    padding-top: 2.5rem;
+  @media (max-width: 480px) {
+    padding-top: 1rem;
   }
 
   @media (max-width: 768px) {
     padding-top: 1.5rem;
   }
 
-  @media (max-width: 480px) {
-    padding-top: 1rem;
+  @media (max-width: 1024px) {
+    padding-top: 2.5rem;
   }
+
+
 `;
 
 const AboutUsHeader = styled.div`
@@ -49,9 +51,9 @@ const AboutUsHeader = styled.div`
   margin-bottom: 2.5rem;
   padding-top: 11rem; 
 
-  @media (max-width: 1024px) {
-    font-size: 40px;
-    padding-top: 10.5rem; 
+  @media (max-width: 480px) {
+    font-size: 30px;
+    padding-top: 8.5rem; 
   }
 
   @media (max-width: 768px) {
@@ -60,10 +62,12 @@ const AboutUsHeader = styled.div`
     padding-top: 9.5rem; 
   }
 
-  @media (max-width: 480px) {
-    font-size: 30px;
-    padding-top: 8.5rem; 
+  @media (max-width: 1024px) {
+    font-size: 40px;
+    padding-top: 10.5rem; 
   }
+
+
 `;
 
 const AboutUsContent = styled.div`
@@ -74,14 +78,15 @@ const AboutUsContent = styled.div`
   width: 100%;
   gap: 20px; 
 
-  @media (max-width: 1024px) {
-    gap: 20px;
-  }
-
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
   }
+  
+  @media (max-width: 1024px) {
+    gap: 20px;
+  }
+
 `;
 
 const AboutUsText = styled.div`
