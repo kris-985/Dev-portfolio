@@ -1,6 +1,16 @@
 import styled from "styled-components";
 import { FaJs, FaReact } from "react-icons/fa";
-import { SiRedux, SiTailwindcss, SiStyledcomponents } from "react-icons/si";
+import {
+  SiRedux,
+  SiTailwindcss,
+  SiStyledcomponents,
+  SiTypescript,
+  SiVuedotjs,
+  SiNextdotjs,
+  SiMysql,
+  SiBootstrap,
+  SiPhp,
+} from "react-icons/si";
 import { DiFirebase } from "react-icons/di";
 import { skills } from "../localizations/strings";
 import { useSelector } from "react-redux";
@@ -10,12 +20,18 @@ const skillsLeft = [
   { name: "JavaScript", icon: <FaJs /> },
   { name: "React", icon: <FaReact /> },
   { name: "Redux", icon: <SiRedux /> },
+  { name: "TypeScript", icon: <SiTypescript /> },
+  { name: "Vue", icon: <SiVuedotjs /> },
+  { name: "Bootstrap", icon: <SiBootstrap /> },
 ];
 
 const skillsRight = [
   { name: "Tailwind", icon: <SiTailwindcss /> },
   { name: "Styled Components", icon: <SiStyledcomponents /> },
   { name: "Firebase", icon: <DiFirebase /> },
+  { name: "Next", icon: <SiNextdotjs /> },
+  { name: "MySQL", icon: <SiMysql /> },
+  { name: "PHP", icon: <SiPhp /> },
 ];
 
 export const Skills = () => {

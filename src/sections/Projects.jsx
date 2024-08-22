@@ -1,5 +1,12 @@
 import styled from "styled-components";
-import { cake, krisfit9, movie } from "../assets";
+import {
+  cake,
+  design,
+  fitart,
+  krisfit9,
+  movie,
+  taskmanagementapp,
+} from "../assets";
 import { projects } from "../localizations/strings";
 import { useSelector } from "react-redux";
 import ScrollAnimation from "react-animate-on-scroll";
@@ -14,14 +21,23 @@ export const Projects = () => {
       <ProjectsContainer id="projects">
         <Title>{label.title}</Title>
         <ImagesWrapper>
-          <ProjectImage to="https://github.com/kris-985/cake-app">
+          <ProjectImage to="https://cake-app-vercel.vercel.app/">
             <Image src={cake} alt="Cake App" />
           </ProjectImage>
           <ProjectImage to="https://github.com/kris-985/krisfit9">
             <Image src={krisfit9} alt="Krisfit9" />
           </ProjectImage>
-          <ProjectImage to="https://github.com/kris-985/movie-app">
+          <ProjectImage to="https://movie-app-nu-wheat.vercel.app/">
             <Image src={movie} alt="Movie App" />
+          </ProjectImage>
+          <ProjectImage to="https://task-management-app-vert-iota.vercel.app">
+            <Image src={taskmanagementapp} alt="Task Management App" />
+          </ProjectImage>
+          <ProjectImage to="https://github.com/kris-985/design">
+            <Image src={design} alt="Design" />
+          </ProjectImage>
+          <ProjectImage to="https://github.com/kris-985/supplement-store">
+            <Image src={fitart} alt="FitArt" />
           </ProjectImage>
         </ImagesWrapper>
       </ProjectsContainer>
@@ -33,21 +49,21 @@ const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 7rem; 
+  padding-top: 7rem;
 
   @media (max-width: 480px) {
     margin: 10px;
-    padding-top: 6rem; 
+    padding-top: 6rem;
   }
 
   @media (max-width: 768px) {
     margin: 15px;
-    padding-top: 6.5rem; 
+    padding-top: 6.5rem;
   }
 
   @media (max-width: 1024px) {
     margin: 20px;
-    padding-top: 7rem; 
+    padding-top: 7rem;
   }
 `;
 
