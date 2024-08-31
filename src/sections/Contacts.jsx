@@ -13,15 +13,17 @@ export const Contacts = () => {
     <ScrollAnimation animateIn="wobble">
       <ContactsContainer id="contacts">
         <Title>{label.title}</Title>
-        <Description>{label.description}</Description>
-        <IconsContainer>
-          <IconLink to="https://www.linkedin.com/in/kristiyan-bakalov/">
-            <FaLinkedin />
-          </IconLink>
-          <IconLink to="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRnXmtxtHDWcBpHLtfrdxWKDxQnfhdpwZMCKhthwXskXxnMNWMtTRLDMrDwnCxcZJnqlcMv">
-            <FaEnvelope />
-          </IconLink>
-        </IconsContainer>
+        <StickyNote>
+          <Description>{label.description}</Description>
+          <IconsContainer>
+            <IconLinks to="https://www.linkedin.com/in/kristiyan-bakalov/">
+              <FaLinkedin />
+            </IconLinks>
+            <IconLink to="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRnXmtxtHDWcBpHLtfrdxWKDxQnfhdpwZMCKhthwXskXxnMNWMtTRLDMrDwnCxcZJnqlcMv">
+              <FaEnvelope />
+            </IconLink>
+          </IconsContainer>
+        </StickyNote>
       </ContactsContainer>
     </ScrollAnimation>
   );
@@ -34,11 +36,11 @@ const ContactsContainer = styled.div`
   padding: 8rem;
 
   @media (max-width: 480px) {
-    padding-top: 6rem; 
+    padding-top: 6rem;
   }
 
   @media (max-width: 1024px) {
-    padding-top: 10rem; 
+    padding-top: 10rem;
   }
 `;
 
@@ -63,24 +65,48 @@ const Title = styled.h1`
   }
 `;
 
+const StickyNote = styled.div`
+  background: #fffae5;
+  border: 2px solid red;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 20px;
+    background: #fffae5;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+`;
+
 const Description = styled.p`
-  font-size: 50px;
-  text-align: left;
-  margin-bottom: 3.5rem;
-  max-width: 800px;
-  color: white;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  color: #333;
 
   @media (max-width: 480px) {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   @media (max-width: 768px) {
-    font-size: 30px;
-    text-align: center;
+    font-size: 20px;
   }
 
   @media (max-width: 1024px) {
-    font-size: 40px;
+    font-size: 22px;
   }
 `;
 
@@ -91,11 +117,11 @@ const IconsContainer = styled.div`
 `;
 
 const IconLink = styled(Link)`
-  font-size: 60px;
-  color: white;
+  font-size: 40px;
+  color: #333;
 
   &:hover {
-    color: #cf1b1b;
+    color: #d93025;
   }
 
   @media (max-width: 480px) {
@@ -103,11 +129,31 @@ const IconLink = styled(Link)`
   }
 
   @media (max-width: 768px) {
-    font-size: 40px;
+    font-size: 35px;
   }
 
   @media (max-width: 1024px) {
-    font-size: 50px;
+    font-size: 40px;
   }
 `;
 
+const IconLinks = styled(Link)`
+  font-size: 40px;
+  color: #333;
+
+  &:hover {
+    color: #0a66c2;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 35px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 40px;
+  }
+`;
