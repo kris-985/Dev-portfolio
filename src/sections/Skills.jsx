@@ -16,20 +16,20 @@ import { skills } from "../localizations/strings";
 import { useSelector } from "react-redux";
 import ScrollAnimation from "react-animate-on-scroll";
 
-const skillsLeft = [
+const frontEndSkills = [
   { name: "JavaScript", icon: <FaJs /> },
   { name: "React", icon: <FaReact /> },
   { name: "Redux", icon: <SiRedux /> },
   { name: "TypeScript", icon: <SiTypescript /> },
   { name: "Vue", icon: <SiVuedotjs /> },
   { name: "Bootstrap", icon: <SiBootstrap /> },
-];
-
-const skillsRight = [
   { name: "Tailwind", icon: <SiTailwindcss /> },
   { name: "Styled Components", icon: <SiStyledcomponents /> },
-  { name: "Firebase", icon: <DiFirebase /> },
   { name: "Next", icon: <SiNextdotjs /> },
+];
+
+const backEndSkills = [
+  { name: "Firebase", icon: <DiFirebase /> },
   { name: "MySQL", icon: <SiMysql /> },
   { name: "PHP", icon: <SiPhp /> },
 ];
@@ -43,22 +43,28 @@ export const Skills = () => {
       <SkillsContainer id="skills">
         <Title>{label.title}</Title>
         <SkillsWrapper>
-          <Column>
-            {skillsLeft.map((skill) => (
-              <SkillItem key={skill.name}>
-                {skill.icon}
-                <SkillName>{skill.name}</SkillName>
-              </SkillItem>
-            ))}
-          </Column>
-          <Column>
-            {skillsRight.map((skill) => (
-              <SkillItem key={skill.name}>
-                {skill.icon}
-                <SkillName>{skill.name}</SkillName>
-              </SkillItem>
-            ))}
-          </Column>
+          <SkillCard>
+            <CardTitle>Front-End Technologies</CardTitle>
+            <SkillsRow>
+              {frontEndSkills.map((skill) => (
+                <SkillItem key={skill.name}>
+                  {skill.icon}
+                  <SkillName>{skill.name}</SkillName>
+                </SkillItem>
+              ))}
+            </SkillsRow>
+          </SkillCard>
+          <SkillCard>
+            <CardTitle>Back-End Technologies</CardTitle>
+            <SkillsRow>
+              {backEndSkills.map((skill) => (
+                <SkillItem key={skill.name}>
+                  {skill.icon}
+                  <SkillName>{skill.name}</SkillName>
+                </SkillItem>
+              ))}
+            </SkillsRow>
+          </SkillCard>
         </SkillsWrapper>
       </SkillsContainer>
     </ScrollAnimation>
@@ -99,39 +105,71 @@ const Title = styled.h1`
 
 const SkillsWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-left: 8rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+`;
 
-  @media (max-width: 1024px) {
-    margin-left: 0;
+const SkillCard = styled.div`
+  background-color: #fffae5;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid red;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  max-width: 800px;
+  text-align: left;
+  position: relative;
+  transform: rotate(-2deg);
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 20px;
+    background: #fffae5;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
   }
 `;
 
-const Column = styled.div`
-  padding: 8px 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+const CardTitle = styled.h2`
+  color: #cf1b1b;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Caveat", cursive;
+`;
 
-  @media (max-width: 768px) {
-    align-items: center;
-  }
+const SkillsRow = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 15px;
 `;
 
 const SkillItem = styled.div`
   display: flex;
   align-items: center;
-  gap: 25px;
-  font-size: 50px;
-  color: #ffffff;
-  margin-bottom: 10px;
+  gap: 15px;
+  font-size: 40px;
+  color: #333333;
+  margin-bottom: 15px;
   transition: transform 0.3s;
 
   &:hover {
     transform: scale(1.1);
-    color: #cf1b1b;
+    color: red;
   }
 
   @media (max-width: 480px) {
@@ -144,10 +182,11 @@ const SkillItem = styled.div`
 `;
 
 const SkillName = styled.span`
-  color: #ffffff;
+  color: #333333;
   line-height: 1.5;
+  font-family: "Caveat", cursive;
 
   &:hover {
-    color: #cf1b1b;
+    color: red;
   }
 `;
