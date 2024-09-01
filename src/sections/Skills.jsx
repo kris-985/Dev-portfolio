@@ -118,9 +118,7 @@ const SkillCard = styled.div`
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
   width: 80%;
   max-width: 800px;
-  text-align: left;
   position: relative;
-  transform: rotate(-2deg);
 
   &:before {
     content: "";
@@ -148,7 +146,6 @@ const CardTitle = styled.h2`
   color: #cf1b1b;
   font-size: 24px;
   margin-bottom: 20px;
-  font-family: "Caveat", cursive;
 `;
 
 const SkillsRow = styled.div`
@@ -184,7 +181,6 @@ const SkillItem = styled.div`
 const SkillName = styled.span`
   color: #333333;
   line-height: 1.5;
-  font-family: "Caveat", cursive;
 
   &:hover {
     color: red;
