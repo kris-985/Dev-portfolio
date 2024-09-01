@@ -156,7 +156,7 @@ const NavLinks = styled.div`
     flex-direction: column;
     width: 100%;
     display: ${({ extendBar }) => (extendBar ? "flex" : "none")};
-    margin-top: 40px;
+    margin-top: 26px;
   }
 `;
 
