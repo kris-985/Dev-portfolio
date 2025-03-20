@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaJs, FaReact } from "react-icons/fa";
+import { FaJs, FaReact, FaNodeJs } from "react-icons/fa";
 import {
   SiRedux,
   SiTailwindcss,
@@ -9,7 +9,8 @@ import {
   SiNextdotjs,
   SiMysql,
   SiBootstrap,
-  SiPhp,
+  SiShadcnui,
+  SiClerk,
 } from "react-icons/si";
 import { DiFirebase } from "react-icons/di";
 import { skills } from "../localizations/strings";
@@ -18,20 +19,22 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 const frontEndSkills = [
   { name: "JavaScript", icon: <FaJs /> },
-  { name: "React", icon: <FaReact /> },
-  { name: "Redux", icon: <SiRedux /> },
   { name: "TypeScript", icon: <SiTypescript /> },
+  { name: "Next", icon: <SiNextdotjs /> },
+  { name: "React", icon: <FaReact /> },
   { name: "Vue", icon: <SiVuedotjs /> },
+  { name: "Redux", icon: <SiRedux /> },
+  { name: "ShadCN", icon: <SiShadcnui /> },
   { name: "Bootstrap", icon: <SiBootstrap /> },
   { name: "Tailwind", icon: <SiTailwindcss /> },
   { name: "Styled Components", icon: <SiStyledcomponents /> },
-  { name: "Next", icon: <SiNextdotjs /> },
 ];
 
 const backEndSkills = [
+  { name: "Node.js", icon: <FaNodeJs /> },
   { name: "Firebase", icon: <DiFirebase /> },
   { name: "MySQL", icon: <SiMysql /> },
-  { name: "PHP", icon: <SiPhp /> },
+  { name: "Clerk", icon: <SiClerk /> },
 ];
 
 export const Skills = () => {
