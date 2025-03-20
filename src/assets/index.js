@@ -9,6 +9,7 @@ import england from "./england.png";
 import taskmanagementapp from "./taskmanagementapp.png";
 import design from "./design.png";
 import fitart from "./fitart.png";
+import tracker from "./tracker.png";
 
 export {
   icon,
@@ -22,4 +23,5 @@ export {
   taskmanagementapp,
   design,
   fitart,
+  tracker,
 };
