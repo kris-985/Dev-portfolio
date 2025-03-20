@@ -6,6 +6,7 @@ import {
   krisfit9,
   movie,
   taskmanagementapp,
+  tracker,
 } from "../assets";
 import { projects } from "../localizations/strings";
 import { useSelector } from "react-redux";
@@ -21,6 +22,12 @@ export const Projects = () => {
       <ProjectsContainer id="projects">
         <Title>{label.title}</Title>
         <ImagesWrapper>
+          <ProjectImage>
+            <Image src={tracker} alt="Tracker" />
+          </ProjectImage>
+          <ProjectImage to="https://github.com/kris-985/supplement-store">
+            <Image src={fitart} alt="FitArt" />
+          </ProjectImage>
           <ProjectImage to="https://cake-app-vercel.vercel.app/">
             <Image src={cake} alt="Cake App" />
           </ProjectImage>
@@ -35,9 +42,6 @@ export const Projects = () => {
           </ProjectImage>
           <ProjectImage to="https://github.com/kris-985/design">
             <Image src={design} alt="Design" />
-          </ProjectImage>
-          <ProjectImage to="https://github.com/kris-985/supplement-store">
-            <Image src={fitart} alt="FitArt" />
           </ProjectImage>
         </ImagesWrapper>
       </ProjectsContainer>
