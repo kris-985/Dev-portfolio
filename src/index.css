@@ -1,11 +1,21 @@
-body {
-  background-color: black;
-  font-family: Caveat, cursive;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --background: #0a0f14;
+  --foreground: #e2e8f0;
+  --card: #111921;
+  --card-foreground: #e2e8f0;
+  --primary: #14b8a6;
+  --primary-foreground: #0a0f14;
+  --secondary: #1e293b;
+  --secondary-foreground: #e2e8f0;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #14b8a6;
+  --accent-foreground: #0a0f14;
+  --border: #1e293b;
+  --ring: #14b8a6;
+  --radius: 0.5rem;
 }
 
 * {
@@ -14,37 +24,51 @@ body {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  color: var(--foreground);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: red;
-  border-radius: 8px;
+  background-color: var(--primary);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-track {
-  background: black;
+  background: var(--background);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: red black;
+  scrollbar-color: var(--primary) var(--background);
 }
 
-body {
-  -ms-overflow-style: none;
+::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
-body::-ms-scrollbar {
-  width: 8px;
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
 }
 
-body::-ms-scrollbar-thumb {
-  background-color: red;
-  border-radius: 8px;
-}
-
-body::-ms-scrollbar-track {
-  background: black;
+img {
+  max-width: 100%;
+  height: auto;
 }

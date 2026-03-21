@@ -1,118 +1,171 @@
 import styled from "styled-components";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 import { footer } from "../localizations/strings";
 import { useSelector } from "react-redux";
-
-
-const icons = [
-  <FaFacebookF key={1} />,
-  <FaTwitter key={3} />,
-  <FaInstagram key={2} />,
-];
+import { HashLink as Link } from "react-router-hash-link";
 
 export const Footer = () => {
   const language = useSelector((state) => state.language.language);
   const label = footer[language];
 
+  const socialLinks = [
+    { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/kristiyan-bakalov/", label: "LinkedIn" },
+    { icon: <FaGithub />, href: "https://github.com/kris-985", label: "GitHub" },
+    { icon: <FaTwitter />, href: "#", label: "Twitter" },
+  ];
+
+  const navLinks = [
+    { label: language === 'en' ? 'Home' : 'Начало', to: '#' },
+    { label: language === 'en' ? 'About' : 'За мен', to: '#about' },
+    { label: language === 'en' ? 'Skills' : 'Умения', to: '#skills' },
+    { label: language === 'en' ? 'Projects' : 'Проекти', to: '#projects' },
+    { label: language === 'en' ? 'Contact' : 'Контакти', to: '#contacts' },
+  ];
+
   return (
     <FooterContainer>
-      <Name>{label.name}</Name>
-      <SocialIcons>
-        {icons.map((e, i) => (
-          <Icon key={i}>{e}</Icon>
-        ))}
-      </SocialIcons>
-      <Copyright>
-        © {new Date().getFullYear()} {label.copyright}
-      </Copyright>
+      <FooterContent>
+        <FooterTop>
+          <LogoSection>
+            <Logo>KB</Logo>
+            <TagLine>
+              {language === 'en' 
+                ? 'Building digital experiences' 
+                : 'Създаване на дигитални преживявания'}
+            </TagLine>
+          </LogoSection>
+
+          <NavLinks>
+            {navLinks.map((link, index) => (
+              <NavLink key={index} to={link.to} smooth>
+                {link.label}
+              </NavLink>
+            ))}
+          </NavLinks>
+
+          <SocialLinks>
+            {socialLinks.map((social, index) => (
+              <SocialLink key={index} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+                {social.icon}
+              </SocialLink>
+            ))}
+          </SocialLinks>
+        </FooterTop>
+
+        <Divider />
+
+        <FooterBottom>
+          <Copyright>
+            &copy; {new Date().getFullYear()} {label.name}. {label.copyright}
+          </Copyright>
+        </FooterBottom>
+      </FooterContent>
     </FooterContainer>
-    
   );
 };
 
-const FooterContainer = styled.div`
-  background-color: #1f1f1f;
-  padding: 40px;
-  text-align: center;
-  color: white;
-
-  @media (max-width: 480px) {
-    padding: 15px;
-  }
+const FooterContainer = styled.footer`
+  background: #0d1117;
+  border-top: 1px solid #1e293b;
+  padding: 3rem 2rem 2rem;
 
   @media (max-width: 768px) {
-    padding: 20px;
-  }
-
-  @media (max-width: 1024px) {
-    padding: 30px;
+    padding: 2rem 1.5rem 1.5rem;
   }
 `;
 
-const Name = styled.div`
-  font-size: 42px;
-  margin-bottom: 30px;
+const FooterContent = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
 
-  @media (max-width: 480px) {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
+const FooterTop = styled.div`
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 3rem;
+  align-items: center;
 
   @media (max-width: 768px) {
-    font-size: 32px;
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 36px;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
   }
 `;
 
-const SocialIcons = styled.div`
-  margin-top: 30px;
+const LogoSection = styled.div``;
 
-  @media (max-width: 480px) {
-    margin-top: 15px;
-  }
-
-  @media (max-width: 768px) {
-    margin-top: 20px;
-  }
-
+const Logo = styled.div`
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #14b8a6;
+  margin-bottom: 0.5rem;
 `;
 
-const Icon = styled.a`
-  color: white;
-  font-size: 28px;
-  margin: 0 10px;
-  transition: color 0.3s ease;
-  cursor: pointer;
+const TagLine = styled.p`
+  font-size: 0.875rem;
+  color: #94a3b8;
+`;
+
+const NavLinks = styled.nav`
+  display: flex;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+`;
+
+const NavLink = styled(Link)`
+  font-size: 0.875rem;
+  color: #94a3b8;
+  transition: color 0.2s ease;
 
   &:hover {
-    color: #cf1b1b;
+    color: #14b8a6;
   }
+`;
 
-  @media (max-width: 480px) {
-    font-size: 20px;
-  }
+const SocialLinks = styled.div`
+  display: flex;
+  gap: 1rem;
 
   @media (max-width: 768px) {
-    font-size: 24px;
+    justify-content: center;
   }
+`;
 
+const SocialLink = styled.a`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 1.125rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #14b8a6;
+    color: #14b8a6;
+  }
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  background: #1e293b;
+  margin: 2rem 0;
+`;
+
+const FooterBottom = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const Copyright = styled.p`
-  font-size: 22px;
-  margin-top: 30px;
-  
-  @media (max-width: 480px) {
-    font-size: 16px;
-    margin-top: 15px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-    margin-top: 20px;
-  }
+  font-size: 0.875rem;
+  color: #64748b;
 `;
-

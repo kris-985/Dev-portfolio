@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import {
   cake,
   design,
@@ -10,139 +11,308 @@ import {
 } from "../assets";
 import { projects } from "../localizations/strings";
 import { useSelector } from "react-redux";
-import ScrollAnimation from "react-animate-on-scroll";
-import { Link } from "react-router-dom";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
+
+const projectsData = [
+  {
+    title: "Fitness Tracker",
+    description: {
+      en: "Track your fitness journey with detailed analytics and progress monitoring.",
+      bg: "Проследявай фитнес пътуването си с детайлни анализи и мониторинг на прогреса."
+    },
+    image: tracker,
+    tags: ["React", "Firebase", "Tailwind"],
+    link: "#",
+    github: "#"
+  },
+  {
+    title: "FitArt Store",
+    description: {
+      en: "E-commerce platform for fitness supplements and accessories.",
+      bg: "Платформа за електронна търговия с фитнес добавки и аксесоари."
+    },
+    image: fitart,
+    tags: ["React", "Redux", "Node.js"],
+    link: "#",
+    github: "https://github.com/kris-985/supplement-store"
+  },
+  {
+    title: "Cake App",
+    description: {
+      en: "Beautiful cake ordering application with custom designs.",
+      bg: "Красиво приложение за поръчка на торти с персонализирани дизайни."
+    },
+    image: cake,
+    tags: ["React", "Styled Components"],
+    link: "https://cake-app-vercel.vercel.app/",
+    github: "#"
+  },
+  {
+    title: "KrisFit9",
+    description: {
+      en: "Personal training platform with workout plans and nutrition guides.",
+      bg: "Платформа за персонални тренировки с планове и хранителни насоки."
+    },
+    image: krisfit9,
+    tags: ["React", "Firebase"],
+    link: "#",
+    github: "https://github.com/kris-985/krisfit9"
+  },
+  {
+    title: "Movie App",
+    description: {
+      en: "Discover and explore movies with detailed information and ratings.",
+      bg: "Откриване и разглеждане на филми с детайлна информация и рейтинги."
+    },
+    image: movie,
+    tags: ["React", "API", "CSS"],
+    link: "https://movie-app-nu-wheat.vercel.app/",
+    github: "#"
+  },
+  {
+    title: "Task Manager",
+    description: {
+      en: "Organize your tasks efficiently with this intuitive task management app.",
+      bg: "Организирай задачите си ефективно с това интуитивно приложение."
+    },
+    image: taskmanagementapp,
+    tags: ["React", "TypeScript", "Tailwind"],
+    link: "https://task-management-app-vert-iota.vercel.app",
+    github: "#"
+  },
+  {
+    title: "Design Portfolio",
+    description: {
+      en: "Creative design portfolio showcasing various UI/UX projects.",
+      bg: "Креативно дизайн портфолио с различни UI/UX проекти."
+    },
+    image: design,
+    tags: ["Design", "React"],
+    link: "#",
+    github: "https://github.com/kris-985/design"
+  },
+];
 
 export const Projects = () => {
   const language = useSelector((state) => state.language.language);
   const label = projects[language];
+  const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.05 });
 
   return (
-    <ScrollAnimation animateIn="fadeIn">
-      <ProjectsContainer id="projects">
-        <Title>{label.title}</Title>
-        <ImagesWrapper>
-          <ProjectImage>
-            <Image src={tracker} alt="Tracker" />
-          </ProjectImage>
-          <ProjectImage to="https://github.com/kris-985/supplement-store">
-            <Image src={fitart} alt="FitArt" />
-          </ProjectImage>
-          <ProjectImage to="https://cake-app-vercel.vercel.app/">
-            <Image src={cake} alt="Cake App" />
-          </ProjectImage>
-          <ProjectImage to="https://github.com/kris-985/krisfit9">
-            <Image src={krisfit9} alt="Krisfit9" />
-          </ProjectImage>
-          <ProjectImage to="https://movie-app-nu-wheat.vercel.app/">
-            <Image src={movie} alt="Movie App" />
-          </ProjectImage>
-          <ProjectImage to="https://task-management-app-vert-iota.vercel.app">
-            <Image src={taskmanagementapp} alt="Task Management App" />
-          </ProjectImage>
-          <ProjectImage to="https://github.com/kris-985/design">
-            <Image src={design} alt="Design" />
-          </ProjectImage>
-        </ImagesWrapper>
-      </ProjectsContainer>
-    </ScrollAnimation>
+    <Section id="projects" ref={sectionRef}>
+      <Container isVisible={isVisible}>
+        <SectionLabel>{label.title}</SectionLabel>
+        <SectionTitle>
+          {language === 'en' ? 'Selected Work' : 'Избрани Проекти'}
+        </SectionTitle>
+        
+        <ProjectsGrid>
+          {projectsData.map((project, index) => (
+            <ProjectCard key={index} index={index} isVisible={isVisible}>
+              <ImageWrapper>
+                <ProjectImage src={project.image} alt={project.title} />
+                <ImageOverlay>
+                  <OverlayLinks>
+                    {project.link !== "#" && (
+                      <OverlayLink href={project.link} target="_blank" rel="noopener noreferrer">
+                        <FaExternalLinkAlt />
+                      </OverlayLink>
+                    )}
+                    {project.github !== "#" && (
+                      <OverlayLink href={project.github} target="_blank" rel="noopener noreferrer">
+                        <FaGithub />
+                      </OverlayLink>
+                    )}
+                  </OverlayLinks>
+                </ImageOverlay>
+              </ImageWrapper>
+              <CardContent>
+                <ProjectTitle>{project.title}</ProjectTitle>
+                <ProjectDescription>{project.description[language]}</ProjectDescription>
+                <Tags>
+                  {project.tags.map((tag, i) => (
+                    <Tag key={i}>{tag}</Tag>
+                  ))}
+                </Tags>
+              </CardContent>
+            </ProjectCard>
+          ))}
+        </ProjectsGrid>
+      </Container>
+    </Section>
   );
 };
 
-const ProjectsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const Section = styled.section`
+  padding: 6rem 2rem;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
+`;
+
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(40px);
+  
+  ${({ isVisible }) => isVisible && css`
+    animation: ${fadeInUp} 0.8s ease-out forwards;
+  `}
+`;
+
+const SectionLabel = styled.span`
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #14b8a6;
+  display: inline-flex;
   align-items: center;
-  padding-top: 7rem;
+  gap: 1rem;
 
-  @media (max-width: 480px) {
-    margin: 10px;
-    padding-top: 6rem;
-  }
-
-  @media (max-width: 768px) {
-    margin: 15px;
-    padding-top: 6.5rem;
-  }
-
-  @media (max-width: 1024px) {
-    margin: 20px;
-    padding-top: 7rem;
+  &::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: #14b8a6;
   }
 `;
 
-const Title = styled.h1`
-  color: #cf1b1b;
-  text-align: center;
-  text-decoration: underline;
-  text-decoration-color: #cf1b1b;
-  font-size: 45px;
-  margin-bottom: 3.5rem;
-
-  @media (max-width: 480px) {
-    font-size: 30px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 35px;
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 40px;
-  }
+const SectionTitle = styled.h2`
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 1rem 0 3rem;
 `;
 
-const ImagesWrapper = styled.div`
+const ProjectsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
 
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
-    gap: 10px;
   }
 `;
 
-const ProjectImage = styled(Link)`
-  display: inline-block;
-  border-radius: 0.5rem;
+const ProjectCard = styled.article`
+  background: #111921;
+  border: 1px solid #1e293b;
+  border-radius: 16px;
   overflow: hidden;
-  width: 400px;
-  height: 400px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  
+  ${({ isVisible, index }) => isVisible && css`
+    animation: ${fadeInUp} 0.6s ease-out forwards;
+    animation-delay: ${0.1 * index}s;
+  `}
 
-  @media (max-width: 480px) {
-    width: 150px;
-    height: 150px;
-  }
-
-  @media (max-width: 768px) {
-    width: 200px;
-    height: 200px;
-  }
-
-  @media (max-width: 1024px) {
-    width: 300px;
-    height: 300px;
+  &:hover {
+    border-color: #14b8a6;
+    transform: translateY(-4px);
   }
 `;
 
-const Image = styled.img`
+const ImageWrapper = styled.div`
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+`;
+
+const ProjectImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.5s ease;
+
+  ${ProjectCard}:hover & {
+    transform: scale(1.05);
+  }
+`;
+
+const ImageOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 15, 20, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  ${ProjectCard}:hover & {
+    opacity: 1;
+  }
+`;
+
+const OverlayLinks = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+const OverlayLink = styled.a`
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #14b8a6;
+  color: #0a0f14;
+  border-radius: 50%;
+  font-size: 1.125rem;
+  transition: all 0.2s ease;
 
   &:hover {
+    background: #0d9488;
     transform: scale(1.1);
   }
+`;
+
+const CardContent = styled.div`
+  padding: 1.5rem;
+`;
+
+const ProjectTitle = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 0.75rem;
+`;
+
+const ProjectDescription = styled.p`
+  font-size: 0.9375rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+`;
+
+const Tags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+`;
+
+const Tag = styled.span`
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #14b8a6;
+  background: rgba(20, 184, 166, 0.1);
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(20, 184, 166, 0.2);
 `;
