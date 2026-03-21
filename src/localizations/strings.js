@@ -25,11 +25,11 @@ export const home = {
 export const about = {
   bg: {
     header: "За мен",
-    text: "Страстен млад front-end разработчик с усет към създаването на завладяващи потребителски изживявания. React ентусиаст и желаещ да допринесе с иновативни решения. Посветен на непрекъснато учене и развитие в постоянно променящия се свят на уеб разработката.",
+    text: "Страстен full-stack разработчик с усет към създаването на завладяващи потребителски изживявания. Владея React, Node.js и съвременни уеб технологии. Посветен на непрекъснато учене и развитие в постоянно променящия се свят на уеб разработката.",
   },
   en: {
     header: "About",
-    text: "Passionate Junior Front-End Developer with a knack for crafting engaging user experiences. Proficient in React and eager to contribute innovative solutions. Dedicated to continuous learning and growth in the ever-evolving world of web development.",
+    text: "Passionate Full-Stack Developer with a knack for crafting engaging user experiences. Proficient in React, Node.js, and modern web technologies. Dedicated to continuous learning and growth in the ever-evolving world of web development.",
   },
 };
 

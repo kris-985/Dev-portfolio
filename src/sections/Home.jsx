@@ -14,7 +14,7 @@ export const Home = () => {
   const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.1 });
 
   useEffect(() => {
-    const textList = ["React.js Developer", "Gym Addict", "Personal Trainer"];
+    const textList = ["Full-Stack Developer", "Gym Addict", "Personal Trainer"];
     let textIndex = 0;
     let charIndex = 0;
 
