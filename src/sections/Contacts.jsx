@@ -1,11 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { FaLinkedin, FaEnvelope, FaGithub, FaArrowRight } from "react-icons/fa";
 import { contacts } from "../localizations/strings";
 import { useSelector } from "react-redux";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export const Contacts = () => {
   const language = useSelector((state) => state.language.language);
   const label = contacts[language];
+  const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.1 });
 
   const contactLinks = [
     {
@@ -29,8 +31,8 @@ export const Contacts = () => {
   ];
 
   return (
-    <Section id="contacts">
-      <Container>
+    <Section id="contacts" ref={sectionRef}>
+      <Container isVisible={isVisible}>
         <Content>
           <SectionLabel>{label.title}</SectionLabel>
           <Heading>
@@ -48,7 +50,7 @@ export const Contacts = () => {
 
         <ContactGrid>
           {contactLinks.map((contact, index) => (
-            <ContactCard key={index} href={contact.href} target="_blank" rel="noopener noreferrer">
+            <ContactCard key={index} href={contact.href} target="_blank" rel="noopener noreferrer" index={index} isVisible={isVisible}>
               <ContactIcon>{contact.icon}</ContactIcon>
               <ContactInfo>
                 <ContactLabel>{contact.label}</ContactLabel>
@@ -61,6 +63,28 @@ export const Contacts = () => {
     </Section>
   );
 };
+
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const slideInRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 const Section = styled.section`
   padding: 6rem 2rem;
@@ -77,6 +101,12 @@ const Container = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  opacity: 0;
+  transform: translateY(40px);
+  
+  ${({ isVisible }) => isVisible && css`
+    animation: ${fadeInUp} 0.8s ease-out forwards;
+  `}
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -178,6 +208,13 @@ const ContactCard = styled.a`
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
   transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(30px);
+  
+  ${({ isVisible, index }) => isVisible && css`
+    animation: ${slideInRight} 0.6s ease-out forwards;
+    animation-delay: ${0.2 + index * 0.15}s;
+  `}
 
   &:hover {
     border-color: #14b8a6;

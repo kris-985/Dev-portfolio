@@ -1,15 +1,17 @@
 import { HashLink as Link } from "react-router-hash-link";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { FaLinkedin, FaGithub, FaArrowRight } from "react-icons/fa";
 import { useEffect, useRef } from "react";
 import { home } from "../localizations/strings";
 import { avatar } from "../assets";
 import { useSelector } from "react-redux";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export const Home = () => {
   const language = useSelector((state) => state.language.language);
   const label = home[language];
   const textRef = useRef(null);
+  const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.1 });
 
   useEffect(() => {
     const textList = ["React.js Developer", "Gym Addict", "Personal Trainer"];
@@ -39,9 +41,9 @@ export const Home = () => {
   }, []);
 
   return (
-    <Section id="#">
-      <Container>
-        <LeftColumn>
+    <Section id="#" ref={sectionRef}>
+      <Container isVisible={isVisible}>
+        <LeftColumn isVisible={isVisible}>
           <Greeting>{label.hi}</Greeting>
           <Name>{label.name}</Name>
           <RoleWrapper>
@@ -71,7 +73,7 @@ export const Home = () => {
           </Actions>
         </LeftColumn>
 
-        <RightColumn>
+        <RightColumn isVisible={isVisible}>
           <ImageWrapper>
             <AvatarImage src={avatar} alt="Kristiyan Bakalov" />
             <ImageGlow />
@@ -86,14 +88,25 @@ export const Home = () => {
   );
 };
 
-const fadeIn = keyframes`
+const fadeInUp = keyframes`
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+`;
+
+const fadeInRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 `;
 
@@ -145,7 +158,12 @@ const Container = styled.div`
 `;
 
 const LeftColumn = styled.div`
-  animation: ${fadeIn} 0.8s ease-out;
+  opacity: 0;
+  transform: translateY(40px);
+  
+  ${({ isVisible }) => isVisible && css`
+    animation: ${fadeInUp} 0.8s ease-out forwards;
+  `}
 
   @media (max-width: 968px) {
     order: 2;
@@ -273,7 +291,12 @@ const SocialLink = styled.a`
 const RightColumn = styled.div`
   display: flex;
   justify-content: center;
-  animation: ${fadeIn} 0.8s ease-out 0.2s backwards;
+  opacity: 0;
+  transform: translateX(40px);
+  
+  ${({ isVisible }) => isVisible && css`
+    animation: ${fadeInRight} 0.8s ease-out 0.3s forwards;
+  `}
 
   @media (max-width: 968px) {
     order: 1;

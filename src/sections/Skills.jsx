@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { FaJs, FaReact, FaNodeJs } from "react-icons/fa";
 import {
   SiRedux,
@@ -15,6 +15,7 @@ import {
 import { DiFirebase } from "react-icons/di";
 import { skills } from "../localizations/strings";
 import { useSelector } from "react-redux";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const frontEndSkills = [
   { name: "JavaScript", icon: <FaJs />, color: "#f7df1e" },
@@ -39,10 +40,11 @@ const backEndSkills = [
 export const Skills = () => {
   const language = useSelector((state) => state.language.language);
   const label = skills[language];
+  const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <Section id="skills">
-      <Container>
+    <Section id="skills" ref={sectionRef}>
+      <Container isVisible={isVisible}>
         <SectionLabel>{label.title}</SectionLabel>
         
         <SkillsContainer>
@@ -51,8 +53,8 @@ export const Skills = () => {
               {language === 'en' ? 'Frontend' : 'Фронтенд'}
             </CategoryTitle>
             <SkillsGrid>
-              {frontEndSkills.map((skill) => (
-                <SkillCard key={skill.name} color={skill.color}>
+              {frontEndSkills.map((skill, index) => (
+                <SkillCard key={skill.name} color={skill.color} index={index} isVisible={isVisible}>
                   <SkillIcon color={skill.color}>{skill.icon}</SkillIcon>
                   <SkillName>{skill.name}</SkillName>
                 </SkillCard>
@@ -65,8 +67,8 @@ export const Skills = () => {
               {language === 'en' ? 'Backend' : 'Бекенд'}
             </CategoryTitle>
             <SkillsGrid>
-              {backEndSkills.map((skill) => (
-                <SkillCard key={skill.name} color={skill.color}>
+              {backEndSkills.map((skill, index) => (
+                <SkillCard key={skill.name} color={skill.color} index={index + frontEndSkills.length} isVisible={isVisible}>
                   <SkillIcon color={skill.color}>{skill.icon}</SkillIcon>
                   <SkillName>{skill.name}</SkillName>
                 </SkillCard>
@@ -79,6 +81,28 @@ export const Skills = () => {
   );
 };
 
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const scaleIn = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
 const Section = styled.section`
   padding: 6rem 2rem;
 
@@ -90,6 +114,12 @@ const Section = styled.section`
 const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(40px);
+  
+  ${({ isVisible }) => isVisible && css`
+    animation: ${fadeInUp} 0.8s ease-out forwards;
+  `}
 `;
 
 const SectionLabel = styled.h2`
@@ -148,6 +178,13 @@ const SkillCard = styled.div`
   gap: 0.75rem;
   transition: all 0.3s ease;
   cursor: default;
+  opacity: 0;
+  transform: scale(0.8);
+  
+  ${({ isVisible, index }) => isVisible && css`
+    animation: ${scaleIn} 0.5s ease-out forwards;
+    animation-delay: ${0.05 * index}s;
+  `}
 
   &:hover {
     border-color: ${({ color }) => color || '#14b8a6'};

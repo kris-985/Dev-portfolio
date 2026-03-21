@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import {
   cake,
@@ -11,6 +11,7 @@ import {
 } from "../assets";
 import { projects } from "../localizations/strings";
 import { useSelector } from "react-redux";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const projectsData = [
   {
@@ -95,10 +96,11 @@ const projectsData = [
 export const Projects = () => {
   const language = useSelector((state) => state.language.language);
   const label = projects[language];
+  const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.05 });
 
   return (
-    <Section id="projects">
-      <Container>
+    <Section id="projects" ref={sectionRef}>
+      <Container isVisible={isVisible}>
         <SectionLabel>{label.title}</SectionLabel>
         <SectionTitle>
           {language === 'en' ? 'Selected Work' : 'Избрани Проекти'}
@@ -106,7 +108,7 @@ export const Projects = () => {
         
         <ProjectsGrid>
           {projectsData.map((project, index) => (
-            <ProjectCard key={index}>
+            <ProjectCard key={index} index={index} isVisible={isVisible}>
               <ImageWrapper>
                 <ProjectImage src={project.image} alt={project.title} />
                 <ImageOverlay>
@@ -141,6 +143,17 @@ export const Projects = () => {
   );
 };
 
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const Section = styled.section`
   padding: 6rem 2rem;
 
@@ -152,6 +165,12 @@ const Section = styled.section`
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(40px);
+  
+  ${({ isVisible }) => isVisible && css`
+    animation: ${fadeInUp} 0.8s ease-out forwards;
+  `}
 `;
 
 const SectionLabel = styled.span`
@@ -195,6 +214,13 @@ const ProjectCard = styled.article`
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  
+  ${({ isVisible, index }) => isVisible && css`
+    animation: ${fadeInUp} 0.6s ease-out forwards;
+    animation-delay: ${0.1 * index}s;
+  `}
 
   &:hover {
     border-color: #14b8a6;

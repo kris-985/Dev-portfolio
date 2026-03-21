@@ -1,10 +1,12 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { about } from "../localizations/strings";
 import { useSelector } from "react-redux";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export const About = () => {
   const language = useSelector((state) => state.language.language);
   const label = about[language];
+  const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.1 });
 
   const stats = [
     { value: "2+", label: language === 'en' ? "Years Experience" : "Години Опит" },
@@ -13,8 +15,8 @@ export const About = () => {
   ];
 
   return (
-    <Section id="about">
-      <Container>
+    <Section id="about" ref={sectionRef}>
+      <Container isVisible={isVisible}>
         <SectionLabel>{label.header}</SectionLabel>
         
         <ContentGrid>
@@ -29,7 +31,7 @@ export const About = () => {
           
           <StatsGrid>
             {stats.map((stat, index) => (
-              <StatCard key={index}>
+              <StatCard key={index} index={index} isVisible={isVisible}>
                 <StatValue>{stat.value}</StatValue>
                 <StatLabel>{stat.label}</StatLabel>
               </StatCard>
@@ -41,14 +43,25 @@ export const About = () => {
   );
 };
 
-const fadeIn = keyframes`
+const fadeInUp = keyframes`
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+`;
+
+const slideInRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 `;
 
@@ -64,6 +77,12 @@ const Section = styled.section`
 const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(40px);
+  
+  ${({ isVisible }) => isVisible && css`
+    animation: ${fadeInUp} 0.8s ease-out forwards;
+  `}
 `;
 
 const SectionLabel = styled.h2`
@@ -126,6 +145,13 @@ const StatCard = styled.div`
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(30px);
+  
+  ${({ isVisible, index }) => isVisible && css`
+    animation: ${slideInRight} 0.6s ease-out forwards;
+    animation-delay: ${0.2 + index * 0.15}s;
+  `}
 
   &:hover {
     border-color: #14b8a6;

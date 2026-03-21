@@ -2,6 +2,7 @@ export const navBar = {
   bg: {
     home: "Начало",
     about: "За мен",
+    experience: "Опит",
     skills: "Умения",
     projects: "Проекти",
     contacts: "Контакти",
@@ -9,6 +10,7 @@ export const navBar = {
   en: {
     home: "Home",
     about: "About",
+    experience: "Experience",
     skills: "Skills",
     projects: "Projects",
     contacts: "Contacts",
@@ -29,6 +31,11 @@ export const about = {
     header: "About",
     text: "Passionate Junior Front-End Developer with a knack for crafting engaging user experiences. Proficient in React and eager to contribute innovative solutions. Dedicated to continuous learning and growth in the ever-evolving world of web development.",
   },
+};
+
+export const experience = {
+  bg: { title: "Опит" },
+  en: { title: "Experience" },
 };
 
 export const skills = {

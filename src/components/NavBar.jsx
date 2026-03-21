@@ -62,6 +62,14 @@ export const NavBar = () => {
             {label.about}
           </Navlink>
           <Navlink
+            to="#experience"
+            smooth
+            active={activeLink === "#experience" ? 1 : 0}
+            onClick={handleNavLinkClick}
+          >
+            {label.experience}
+          </Navlink>
+          <Navlink
             to="#skills"
             smooth
             active={activeLink === "#skills" ? 1 : 0}
@@ -124,6 +132,14 @@ export const NavBar = () => {
           onClick={handleNavLinkClick}
         >
           {label.about}
+        </Navlink>
+        <Navlink
+          to="#experience"
+          smooth
+          active={activeLink === "#experience" ? 1 : 0}
+          onClick={handleNavLinkClick}
+        >
+          {label.experience}
         </Navlink>
         <Navlink
           to="#skills"
@@ -194,9 +210,9 @@ const LogoText = styled.span`
 const NavLinks = styled.div`
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     display: none;
   }
 `;
@@ -263,7 +279,7 @@ const MenuWrapper = styled.button`
   cursor: pointer;
   padding: 0.25rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -273,7 +289,7 @@ const MenuWrapper = styled.button`
 const MobileMenu = styled.div`
   display: none;
   
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     display: ${({ extendBar }) => extendBar ? 'flex' : 'none'};
     flex-direction: column;
     gap: 1.5rem;
