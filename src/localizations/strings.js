@@ -18,8 +18,8 @@ export const navBar = {
 };
 
 export const home = {
-  bg: { hi: "Здравейте,", name: "Аз съм Кристиян,", button: "Контакти" },
-  en: { hi: "Hi,", name: "I'm Kristiyan,", button: "Contacts" },
+  bg: { hi: "Здравейте,", name: "Аз съм Кристиян,", button: "Контакти", downloadCv: "Свали CV" },
+  en: { hi: "Hi,", name: "I'm Kristiyan,", button: "Contacts", downloadCv: "Download CV" },
 };
 
 export const about = {

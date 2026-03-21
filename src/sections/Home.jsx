@@ -1,6 +1,6 @@
 import { HashLink as Link } from "react-router-hash-link";
 import styled, { keyframes, css } from "styled-components";
-import { FaLinkedin, FaGithub, FaArrowRight } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaArrowRight, FaDownload } from "react-icons/fa";
 import { useEffect, useRef } from "react";
 import { home } from "../localizations/strings";
 import { avatar } from "../assets";
@@ -60,8 +60,12 @@ export const Home = () => {
           <Actions>
             <PrimaryButton to="#contacts" smooth>
               {label.button}
-              <FaArrowRight />
+              <ArrowIcon />
             </PrimaryButton>
+            <DownloadButton href="/CV-Kristiyan-Bakalov.pdf" download>
+              {label.downloadCv}
+              <FaDownload />
+            </DownloadButton>
             <SocialLinks>
               <SocialLink href="https://www.linkedin.com/in/kristiyan-bakalov/" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin />
@@ -237,6 +241,12 @@ const Actions = styled.div`
   }
 `;
 
+const ArrowIcon = styled(FaArrowRight)`
+  color: #14b8a6;
+  font-size: 0.875rem;
+  transition: transform 0.2s ease;
+`;
+
 const PrimaryButton = styled(Link)`
   display: inline-flex;
   align-items: center;
@@ -254,13 +264,38 @@ const PrimaryButton = styled(Link)`
     transform: translateY(-2px);
   }
 
+  &:hover ${ArrowIcon} {
+    transform: translateX(4px);
+  }
+`;
+
+const DownloadButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  border: 1px solid #14b8a6;
+  color: #14b8a6;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(20, 184, 166, 0.1);
+    transform: translateY(-2px);
+  }
+
   svg {
     font-size: 0.875rem;
     transition: transform 0.2s ease;
   }
 
   &:hover svg {
-    transform: translateX(4px);
+    transform: translateY(2px);
   }
 `;
 
