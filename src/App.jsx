@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { NavBar, Footer, ScrollToTop } from "./components";
 import "./index.css";
 import { HomePage } from "./pages";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 
 const App = () => {
@@ -19,25 +19,45 @@ const App = () => {
 
   return (
     <Fragment>
-      {showWelcome ? (
-        <WelcomeContainer
-          initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: 1, y: "-110vh" }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 6.3 }}
-        >
-          Welcome
-        </WelcomeContainer>
-      ) : (
-        <Fragment>
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-          </Routes>
-          <Footer />
-          <ScrollToTop />
-        </Fragment>
-      )}
+      <AnimatePresence mode="wait">
+        {showWelcome ? (
+          <WelcomeContainer
+            key="welcome"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <WelcomeLogo
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              KB
+            </WelcomeLogo>
+            <LoadingBar>
+              <LoadingProgress
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 1.8, ease: "easeInOut" }}
+              />
+            </LoadingBar>
+          </WelcomeContainer>
+        ) : (
+          <motion.div
+            key="main"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+            </Routes>
+            <Footer />
+            <ScrollToTop />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Fragment>
   );
 };
@@ -46,10 +66,31 @@ export default App;
 
 const WelcomeContainer = styled(motion.div)`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-size: 3rem;
-  background-color: black;
-  color: white;
+  background: #0a0f14;
+  gap: 2rem;
+`;
+
+const WelcomeLogo = styled(motion.div)`
+  font-size: 4rem;
+  font-weight: 700;
+  color: #14b8a6;
+  letter-spacing: -0.02em;
+`;
+
+const LoadingBar = styled.div`
+  width: 200px;
+  height: 2px;
+  background: #1e293b;
+  border-radius: 2px;
+  overflow: hidden;
+`;
+
+const LoadingProgress = styled(motion.div)`
+  height: 100%;
+  background: #14b8a6;
+  border-radius: 2px;
 `;
