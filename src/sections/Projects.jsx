@@ -23,7 +23,7 @@ const projectsData = [
       bg: "Платформа за междуградски автобусни билети - сравни маршрути, виж свободни места, резервирай пътници и управлявай пътуванията."
     },
     image: busgoImg,
-    tags: ["Angular", "Node.js", "TypeScript"],
+    tags: ["React", "Node.js", "TypeScript"],
     link: "https://busgo-bulgaria.netlify.app/",
     github: "#"
   },
@@ -56,7 +56,7 @@ const projectsData = [
       bg: "Платформа за електронна търговия с фитнес добавки и аксесоари."
     },
     image: fitart,
-    tags: ["React", "Redux", "Node.js"],
+    tags: ["React", "Firebase", "Tailwind"],
     link: "#",
     github: "https://github.com/kris-985/supplement-store"
   },
@@ -67,7 +67,7 @@ const projectsData = [
       bg: "Красиво приложение за поръчка на торти с персонализирани дизайни."
     },
     image: cake,
-    tags: ["React", "Styled Components"],
+    tags: ["React", "Styled Components", "API"],
     link: "https://cake-app-vercel.vercel.app/",
     github: "#"
   },
@@ -78,7 +78,7 @@ const projectsData = [
       bg: "Платформа за персонални тренировки с планове и хранителни насоки."
     },
     image: krisfit9,
-    tags: ["React", "Firebase"],
+    tags: ["PHP", "Vue", "MySQL", "Tailwind"],
     link: "#",
     github: "https://github.com/kris-985/krisfit9"
   },
