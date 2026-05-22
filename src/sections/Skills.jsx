@@ -11,7 +11,6 @@ import {
   SiBootstrap,
   SiShadcnui,
   SiClerk,
-  SiAngularmaterial,
 } from "react-icons/si";
 import { DiFirebase } from "react-icons/di";
 import { skills } from "../localizations/strings";
@@ -24,7 +23,7 @@ const frontEndSkills = [
   { name: "Next.js", icon: <SiNextdotjs />, color: "#ffffff" },
   { name: "React", icon: <FaReact />, color: "#61dafb" },
   { name: "Angular", icon: <FaAngular />, color: "#dd0031" },
-  { name: "Angular Material", icon: <SiAngularmaterial />, color: "#dd0031" },
+  { name: "Angular Material", icon: <FaAngular />, color: "#dd0031" },
   { name: "Vue", icon: <SiVuedotjs />, color: "#42b883" },
   { name: "Redux", icon: <SiRedux />, color: "#764abc" },
   { name: "ShadCN", icon: <SiShadcnui />, color: "#ffffff" },
