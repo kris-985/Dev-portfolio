@@ -31,8 +31,8 @@ const experienceData = [
   },
   {
     title: {
-      en: "Intern Front-end Developer",
-      bg: "Стажант Front-end Разработчик"
+      en: "Front-end Developer",
+      bg: "Front-end Разработчик"
     },
     company: "ClearWare",
     period: "09/2023 - 11/2023",
@@ -49,8 +49,8 @@ const experienceData = [
   },
   {
     title: {
-      en: "Intern Front-end Developer",
-      bg: "Стажант Front-end Разработчик"
+      en: "Front-end Developer",
+      bg: "Front-end Разработчик"
     },
     company: "IlievSoft",
     period: "06/2023 - 08/2023",

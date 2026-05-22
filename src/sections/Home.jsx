@@ -267,6 +267,10 @@ const PrimaryButton = styled(Link)`
   &:hover ${ArrowIcon} {
     transform: translateX(4px);
   }
+
+  ${ArrowIcon} {
+    color: #0a0f14;
+  }
 `;
 
 const DownloadButton = styled.a`

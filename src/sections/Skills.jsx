@@ -1,5 +1,5 @@
 import styled, { keyframes, css } from "styled-components";
-import { FaJs, FaReact, FaNodeJs } from "react-icons/fa";
+import { FaJs, FaReact, FaNodeJs, FaAngular } from "react-icons/fa";
 import {
   SiRedux,
   SiTailwindcss,
@@ -22,6 +22,8 @@ const frontEndSkills = [
   { name: "TypeScript", icon: <SiTypescript />, color: "#3178c6" },
   { name: "Next.js", icon: <SiNextdotjs />, color: "#ffffff" },
   { name: "React", icon: <FaReact />, color: "#61dafb" },
+  { name: "Angular", icon: <FaAngular />, color: "#dd0031" },
+  { name: "Angular Material", icon: <FaAngular />, color: "#dd0031" },
   { name: "Vue", icon: <SiVuedotjs />, color: "#42b883" },
   { name: "Redux", icon: <SiRedux />, color: "#764abc" },
   { name: "ShadCN", icon: <SiShadcnui />, color: "#ffffff" },

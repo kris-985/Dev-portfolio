@@ -2,18 +2,42 @@ import styled, { keyframes, css } from "styled-components";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import {
   cake,
-  design,
   fitart,
   krisfit9,
   movie,
-  taskmanagementapp,
   tracker,
 } from "../assets";
 import { projects } from "../localizations/strings";
 import { useSelector } from "react-redux";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
+// Import new project images from public folder
+import busgoImg from "/images/busgo.png";
+import eventBookingImg from "/images/event-booking.png";
+
 const projectsData = [
+  {
+    title: "BusGo Bulgaria",
+    description: {
+      en: "Intercity bus ticketing platform - compare routes, see live seats, book passengers, and manage trips with admin dashboard.",
+      bg: "Платформа за междуградски автобусни билети - сравни маршрути, виж свободни места, резервирай пътници и управлявай пътуванията."
+    },
+    image: busgoImg,
+    tags: ["React", "Node.js", "TypeScript"],
+    link: "https://busgo-bulgaria.netlify.app/",
+    github: "#"
+  },
+  {
+    title: "Event Booking",
+    description: {
+      en: "Modern event discovery and booking platform - browse curated events, reserve seats, and manage bookings with a fast dashboard.",
+      bg: "Модерна платформа за откриване и резервиране на събития - разгледай събития, резервирай места и управлявай резервации."
+    },
+    image: eventBookingImg,
+    tags: ["Angular", "TypeScript", "Tailwind"],
+    link: "#",
+    github: "https://github.com/kris-985/event-booking"
+  },
   {
     title: "Fitness Tracker",
     description: {
@@ -32,7 +56,7 @@ const projectsData = [
       bg: "Платформа за електронна търговия с фитнес добавки и аксесоари."
     },
     image: fitart,
-    tags: ["React", "Redux", "Node.js"],
+    tags: ["React", "Firebase", "Tailwind"],
     link: "#",
     github: "https://github.com/kris-985/supplement-store"
   },
@@ -43,7 +67,7 @@ const projectsData = [
       bg: "Красиво приложение за поръчка на торти с персонализирани дизайни."
     },
     image: cake,
-    tags: ["React", "Styled Components"],
+    tags: ["React", "Styled Components", "API"],
     link: "https://cake-app-vercel.vercel.app/",
     github: "#"
   },
@@ -54,7 +78,7 @@ const projectsData = [
       bg: "Платформа за персонални тренировки с планове и хранителни насоки."
     },
     image: krisfit9,
-    tags: ["React", "Firebase"],
+    tags: ["PHP", "Vue", "MySQL", "Tailwind"],
     link: "#",
     github: "https://github.com/kris-985/krisfit9"
   },
@@ -68,28 +92,6 @@ const projectsData = [
     tags: ["React", "API", "CSS"],
     link: "https://movie-app-nu-wheat.vercel.app/",
     github: "#"
-  },
-  {
-    title: "Task Manager",
-    description: {
-      en: "Organize your tasks efficiently with this intuitive task management app.",
-      bg: "Организирай задачите си ефективно с това интуитивно приложение."
-    },
-    image: taskmanagementapp,
-    tags: ["React", "TypeScript", "Tailwind"],
-    link: "https://task-management-app-vert-iota.vercel.app",
-    github: "#"
-  },
-  {
-    title: "Design Portfolio",
-    description: {
-      en: "Creative design portfolio showcasing various UI/UX projects.",
-      bg: "Креативно дизайн портфолио с различни UI/UX проекти."
-    },
-    image: design,
-    tags: ["Design", "React"],
-    link: "#",
-    github: "https://github.com/kris-985/design"
   },
 ];
 
@@ -199,13 +201,9 @@ const SectionTitle = styled.h2`
 `;
 
 const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
-
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
 `;
 
 const ProjectCard = styled.article`
@@ -216,6 +214,8 @@ const ProjectCard = styled.article`
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateY(30px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   
   ${({ isVisible, index }) => isVisible && css`
     animation: ${fadeInUp} 0.6s ease-out forwards;
@@ -226,12 +226,16 @@ const ProjectCard = styled.article`
     border-color: #14b8a6;
     transform: translateY(-4px);
   }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ImageWrapper = styled.div`
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/9;
 `;
 
 const ProjectImage = styled.img`
@@ -284,7 +288,10 @@ const OverlayLink = styled.a`
 `;
 
 const CardContent = styled.div`
-  padding: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const ProjectTitle = styled.h3`

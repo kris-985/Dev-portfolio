@@ -6,8 +6,6 @@ import avatar from "./avatar.jpg";
 import react from "./react.png";
 import bulgaria from "./bulgaria.png";
 import england from "./england.png";
-import taskmanagementapp from "./taskmanagementapp.png";
-import design from "./design.png";
 import fitart from "./fitart.png";
 import tracker from "./tracker.png";
 
@@ -20,8 +18,6 @@ export {
   react,
   bulgaria,
   england,
-  taskmanagementapp,
-  design,
   fitart,
   tracker,
 };
