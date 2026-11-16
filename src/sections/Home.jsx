@@ -3,7 +3,6 @@ import styled, { keyframes, css } from "styled-components";
 import { FaLinkedin, FaGithub, FaArrowRight, FaDownload } from "react-icons/fa";
 import { useEffect, useRef } from "react";
 import { home } from "../localizations/strings";
-import { avatar } from "../assets";
 import { useSelector } from "react-redux";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
@@ -79,7 +78,7 @@ export const Home = () => {
 
         <RightColumn isVisible={isVisible}>
           <ImageWrapper>
-            <AvatarImage src={avatar} alt="Kristiyan Bakalov" />
+            <AvatarImage src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cv_image-iKP9RxRBbIgfemcdlJPlhmS1Yfk13C.png" alt="Kristiyan Bakalov wearing glasses and a white shirt" />
             <ImageGlow />
           </ImageWrapper>
         </RightColumn>
