@@ -189,15 +189,15 @@ const SkillCard = styled.div`
   `}
 
   &:hover {
-    border-color: ${({ color }) => color || 'var(--accent)'};
-    transform: translateY(-4px);
-    box-shadow: 0 10px 40px -10px ${({ color }) => color ? `${color}20` : 'rgba(20, 184, 166, 0.2)'};
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -12px rgb(49 91 67 / 18%);
   }
 `;
 
 const SkillIcon = styled.div`
   font-size: 2rem;
-  color: ${({ color }) => color || 'var(--muted-foreground)'};
+  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;

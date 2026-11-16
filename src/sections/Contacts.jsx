@@ -130,10 +130,11 @@ const Container = styled.div`
 const Content = styled.div``;
 
 const SectionLabel = styled.span`
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: 'DM Mono', monospace;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   color: var(--accent);
   display: inline-flex;
   align-items: center;
@@ -217,8 +218,8 @@ const ContactCard = styled.a`
   gap: 1rem;
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
+  border-radius: 0.9rem;
+  padding: 1rem 1.125rem;
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateX(30px);
@@ -230,7 +231,8 @@ const ContactCard = styled.a`
 
   &:hover {
     border-color: var(--accent);
-    transform: translateX(8px);
+    background: var(--accent-soft);
+    transform: translateX(4px);
   }
 
   @media (max-width: 768px) {

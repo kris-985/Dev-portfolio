@@ -201,9 +201,13 @@ const SectionTitle = styled.h2`
 `;
 
 const ProjectsGrid = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ProjectCard = styled.article`
@@ -214,8 +218,8 @@ const ProjectCard = styled.article`
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateY(30px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   
   ${({ isVisible, index }) => isVisible && css`
     animation: ${fadeInUp} 0.6s ease-out forwards;
@@ -235,7 +239,7 @@ const ProjectCard = styled.article`
 const ImageWrapper = styled.div`
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 10;
 `;
 
 const ProjectImage = styled.img`
@@ -259,7 +263,8 @@ const ImageOverlay = styled.div`
   opacity: 0;
   transition: opacity 0.3s ease;
 
-  ${ProjectCard}:hover & {
+  ${ProjectCard}:hover &,
+  ${ProjectCard}:focus-within & {
     opacity: 1;
   }
 `;

@@ -213,8 +213,8 @@ const MarkerIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(20, 184, 166, 0.1);
-  border: 2px solid var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
   border-radius: 50%;
   color: var(--accent);
   font-size: 1.125rem;
