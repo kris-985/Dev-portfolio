@@ -90,7 +90,7 @@ const SectionLabel = styled.h2`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #14b8a6;
+  color: var(--accent);
   margin-bottom: 3rem;
   position: relative;
   display: inline-flex;
@@ -101,7 +101,7 @@ const SectionLabel = styled.h2`
     content: '';
     width: 40px;
     height: 1px;
-    background: #14b8a6;
+    background: var(--accent);
   }
 `;
 
@@ -125,7 +125,7 @@ const TextContent = styled.div`
 
 const Paragraph = styled.p`
   font-size: 1.125rem;
-  color: #94a3b8;
+  color: var(--muted-foreground);
   line-height: 1.8;
 
   @media (max-width: 768px) {
@@ -140,8 +140,8 @@ const StatsGrid = styled.div`
 `;
 
 const StatCard = styled.div`
-  background: #111921;
-  border: 1px solid #1e293b;
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.3s ease;
@@ -154,7 +154,7 @@ const StatCard = styled.div`
   `}
 
   &:hover {
-    border-color: #14b8a6;
+    border-color: var(--accent);
     transform: translateX(8px);
   }
 `;
@@ -162,14 +162,14 @@ const StatCard = styled.div`
 const StatValue = styled.div`
   font-size: 2.5rem;
   font-weight: 700;
-  color: #e2e8f0;
+  color: var(--foreground);
   line-height: 1;
   margin-bottom: 0.5rem;
 `;
 
 const StatLabel = styled.div`
   font-size: 0.875rem;
-  color: #94a3b8;
+  color: var(--muted-foreground);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 `;

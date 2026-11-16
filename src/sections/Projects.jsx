@@ -180,7 +180,7 @@ const SectionLabel = styled.span`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #14b8a6;
+  color: var(--accent);
   display: inline-flex;
   align-items: center;
   gap: 1rem;
@@ -189,14 +189,14 @@ const SectionLabel = styled.span`
     content: '';
     width: 40px;
     height: 1px;
-    background: #14b8a6;
+    background: var(--accent);
   }
 `;
 
 const SectionTitle = styled.h2`
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  color: #e2e8f0;
+  color: var(--foreground);
   margin: 1rem 0 3rem;
 `;
 
@@ -207,8 +207,8 @@ const ProjectsGrid = styled.div`
 `;
 
 const ProjectCard = styled.article`
-  background: #111921;
-  border: 1px solid #1e293b;
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -223,7 +223,7 @@ const ProjectCard = styled.article`
   `}
 
   &:hover {
-    border-color: #14b8a6;
+    border-color: var(--accent);
     transform: translateY(-4px);
   }
 
@@ -275,8 +275,8 @@ const OverlayLink = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #14b8a6;
-  color: #0a0f14;
+  background: var(--accent);
+  color: var(--accent-foreground);
   border-radius: 50%;
   font-size: 1.125rem;
   transition: all 0.2s ease;
@@ -297,13 +297,13 @@ const CardContent = styled.div`
 const ProjectTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: 600;
-  color: #e2e8f0;
+  color: var(--foreground);
   margin-bottom: 0.75rem;
 `;
 
 const ProjectDescription = styled.p`
   font-size: 0.9375rem;
-  color: #94a3b8;
+  color: var(--muted-foreground);
   line-height: 1.6;
   margin-bottom: 1rem;
 `;
@@ -317,7 +317,7 @@ const Tags = styled.div`
 const Tag = styled.span`
   font-size: 0.75rem;
   font-weight: 500;
-  color: #14b8a6;
+  color: var(--accent);
   background: rgba(20, 184, 166, 0.1);
   padding: 0.375rem 0.75rem;
   border-radius: 9999px;
