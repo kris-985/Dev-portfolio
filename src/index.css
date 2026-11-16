@@ -4,7 +4,7 @@
   color-scheme: light;
   --background: #f4f3ed;
   --foreground: #19231e;
-  --card: #fffefa;
+  --card: #faf9f4;
   --card-foreground: #19231e;
   --primary: #c7f36b;
   --primary-foreground: #19231e;
@@ -13,6 +13,7 @@
   --muted: #ecece4;
   --muted-foreground: #69736c;
   --accent: #315b43;
+  --accent-soft: #edf1e8;
   --accent-foreground: #fffefa;
   --border: #d9ddd2;
   --ring: #315b43;
@@ -200,37 +201,21 @@ main > section:not([id='#']) h2:nth-child(2) {
 }
 
 /* Experience and skills */
-#experience [class*='sc-'] > [class*='sc-'] {
-  border-radius: 1rem;
-}
-#experience [class*='sc-'] > [class*='sc-'] > [class*='sc-']:last-child {
-  background: var(--card) !important;
-  border-color: var(--border) !important;
-}
 #experience li::before { background: var(--accent) !important; }
-#skills [class*='sc-'] > [class*='sc-'] > [class*='sc-'] {
-  background: var(--card) !important;
-  border-color: var(--border) !important;
-  border-radius: 1rem !important;
-  box-shadow: 0 8px 24px rgb(25 35 30 / 3%);
-}
-#skills [class*='sc-'] > [class*='sc-'] > [class*='sc-']:hover {
-  border-color: var(--accent) !important;
-  box-shadow: 0 12px 28px rgb(49 91 67 / 12%) !important;
-}
 #skills h3 { color: var(--foreground) !important; }
+#skills svg { color: var(--accent) !important; }
 
 /* Selected work */
 #projects article {
   background: var(--card) !important;
   border: 1px solid var(--border) !important;
-  border-radius: 1.25rem !important;
-  box-shadow: 0 16px 44px rgb(25 35 30 / 4%);
+  border-radius: 1rem !important;
+  box-shadow: 0 10px 28px rgb(25 35 30 / 4%);
 }
 #projects article:hover { border-color: var(--accent) !important; }
 #projects article img { border-radius: 0 !important; box-shadow: none !important; }
-#projects article h3 { font-size: clamp(1.5rem, 2.6vw, 2.4rem) !important; }
-#projects article p { font-size: 1rem !important; }
+#projects article h3 { font-size: clamp(1.35rem, 2vw, 1.75rem) !important; }
+#projects article p { font-size: .95rem !important; }
 #projects article a { background: var(--primary) !important; color: var(--foreground) !important; }
 #projects article > div:last-child > div:last-child > span {
   background: var(--secondary) !important;
@@ -248,16 +233,15 @@ main > section:not([id='#']) h2:nth-child(2) {
   border-radius: 999px !important;
 }
 #contacts > div > div:last-child > a {
-  background: transparent !important;
-  border: 0 !important;
-  border-top: 1px solid var(--border) !important;
-  border-radius: 0 !important;
-  padding: 1.1rem .25rem !important;
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: .9rem !important;
+  padding: 1rem 1.125rem !important;
 }
 #contacts > div > div:last-child > a > div:first-child {
-  background: var(--secondary) !important;
+  background: var(--accent-soft) !important;
   color: var(--accent) !important;
-  border-radius: 50% !important;
+  border-radius: .75rem !important;
 }
 #contacts > div > div:last-child > a > div:last-child > div:last-child {
   color: var(--foreground) !important;
@@ -267,8 +251,16 @@ footer {
   border-top: 0 !important;
   padding: 3rem var(--page-gutter) 2rem !important;
 }
+footer nav {
+  background: transparent !important;
+  border: 0 !important;
+  backdrop-filter: none !important;
+  padding: 0 !important;
+}
 footer a, footer svg { color: var(--foreground) !important; }
 footer a:hover { color: var(--accent) !important; }
+footer nav a { text-decoration: none !important; }
+footer nav a::after { content: none !important; display: none !important; }
 footer [class*='sc-']:has(> hr) { border-color: var(--border) !important; }
 
 @media (max-width: 968px) {

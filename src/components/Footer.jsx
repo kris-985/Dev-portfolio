@@ -120,7 +120,13 @@ const NavLinks = styled.nav`
 const NavLink = styled(Link)`
   font-size: 0.875rem;
   color: var(--muted-foreground);
+  text-decoration: none;
   transition: color 0.2s ease;
+
+  &::after {
+    content: none !important;
+    display: none !important;
+  }
 
   &:hover {
     color: var(--accent);
@@ -143,7 +149,7 @@ const SocialLink = styled.a`
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 50%;
   color: var(--muted-foreground);
   font-size: 1.125rem;
   transition: all 0.2s ease;
@@ -167,5 +173,5 @@ const FooterBottom = styled.div`
 
 const Copyright = styled.p`
   font-size: 0.875rem;
-  color: #64748b;
+  color: var(--muted-foreground);
 `;
