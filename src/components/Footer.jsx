@@ -120,7 +120,13 @@ const NavLinks = styled.nav`
 const NavLink = styled(Link)`
   font-size: 0.875rem;
   color: var(--muted-foreground);
+  text-decoration: none;
   transition: color 0.2s ease;
+
+  &::after {
+    content: none !important;
+    display: none !important;
+  }
 
   &:hover {
     color: var(--accent);

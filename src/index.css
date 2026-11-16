@@ -251,8 +251,16 @@ footer {
   border-top: 0 !important;
   padding: 3rem var(--page-gutter) 2rem !important;
 }
+footer nav {
+  background: transparent !important;
+  border: 0 !important;
+  backdrop-filter: none !important;
+  padding: 0 !important;
+}
 footer a, footer svg { color: var(--foreground) !important; }
 footer a:hover { color: var(--accent) !important; }
+footer nav a { text-decoration: none !important; }
+footer nav a::after { content: none !important; display: none !important; }
 footer [class*='sc-']:has(> hr) { border-color: var(--border) !important; }
 
 @media (max-width: 968px) {

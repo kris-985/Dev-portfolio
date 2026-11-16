@@ -276,14 +276,18 @@ const FlagButton = styled.button`
 `;
 
 const FlagImg = styled.img`
-  width: 28px;
-  height: 28px;
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
   cursor: pointer;
   border-radius: 50%;
   object-fit: cover;
-  opacity: ${({ active }) => active ? 1 : 0.5};
+  object-position: center;
+  opacity: ${({ active }) => active ? 1 : 0.65};
   transition: all 0.2s ease;
-  border: 2px solid ${({ active }) => active ? 'var(--accent)' : 'transparent'};
+  border: 1px solid var(--border);
+  box-shadow: ${({ active }) => active ? '0 0 0 1px var(--accent)' : 'none'};
 
   &:hover {
     opacity: 1;
