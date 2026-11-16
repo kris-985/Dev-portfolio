@@ -176,7 +176,7 @@ const LeftColumn = styled.div`
 
 const Greeting = styled.span`
   font-size: 1.125rem;
-  color: #94a3b8;
+  color: var(--muted-foreground);
   font-weight: 500;
   display: block;
   margin-bottom: 0.5rem;
@@ -185,7 +185,7 @@ const Greeting = styled.span`
 const Name = styled.h1`
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
-  color: #e2e8f0;
+  color: var(--foreground);
   line-height: 1.1;
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
@@ -204,7 +204,7 @@ const RoleWrapper = styled.div`
 const Role = styled.span`
   font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 600;
-  color: #14b8a6;
+  color: var(--accent);
   font-family: 'JetBrains Mono', monospace;
   min-height: 2rem;
 `;
@@ -212,14 +212,14 @@ const Role = styled.span`
 const Cursor = styled.span`
   width: 3px;
   height: 1.75rem;
-  background: #14b8a6;
+  background: var(--accent);
   margin-left: 2px;
   animation: ${blink} 1s infinite;
 `;
 
 const Description = styled.p`
   font-size: 1.125rem;
-  color: #94a3b8;
+  color: var(--muted-foreground);
   line-height: 1.7;
   max-width: 500px;
   margin-bottom: 2rem;
@@ -242,7 +242,7 @@ const Actions = styled.div`
 `;
 
 const ArrowIcon = styled(FaArrowRight)`
-  color: #14b8a6;
+  color: var(--accent);
   font-size: 0.875rem;
   transition: transform 0.2s ease;
 `;
@@ -252,8 +252,8 @@ const PrimaryButton = styled(Link)`
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem 2rem;
-  background: #14b8a6;
-  color: #0a0f14;
+  background: var(--accent);
+  color: var(--accent-foreground);
   font-weight: 600;
   font-size: 0.9375rem;
   border-radius: 8px;
@@ -269,7 +269,7 @@ const PrimaryButton = styled(Link)`
   }
 
   ${ArrowIcon} {
-    color: #0a0f14;
+    color: var(--accent-foreground);
   }
 `;
 
@@ -279,8 +279,8 @@ const DownloadButton = styled.a`
   gap: 0.75rem;
   padding: 0.875rem 2rem;
   background: transparent;
-  border: 1px solid #14b8a6;
-  color: #14b8a6;
+  border: 1px solid var(--accent);
+  color: var(--accent);
   font-weight: 600;
   font-size: 0.9375rem;
   border-radius: 8px;
@@ -316,13 +316,13 @@ const SocialLink = styled.a`
   height: 44px;
   border: 1px solid #1e293b;
   border-radius: 8px;
-  color: #94a3b8;
+  color: var(--muted-foreground);
   font-size: 1.25rem;
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: #14b8a6;
-    color: #14b8a6;
+    border-color: var(--accent);
+    color: var(--accent);
     transform: translateY(-2px);
   }
 `;
@@ -391,7 +391,7 @@ const ScrollIndicator = styled.div`
 const ScrollLine = styled.div`
   width: 1px;
   height: 40px;
-  background: linear-gradient(to bottom, #14b8a6, transparent);
+  background: linear-gradient(to bottom, var(--accent), transparent);
   position: relative;
 
   &::before {
@@ -401,7 +401,7 @@ const ScrollLine = styled.div`
     left: -2px;
     width: 5px;
     height: 5px;
-    background: #14b8a6;
+    background: var(--accent);
     border-radius: 50%;
     animation: ${scrollDown} 2s infinite;
   }

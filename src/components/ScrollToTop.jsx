@@ -36,8 +36,8 @@ const ScrollButton = styled.div`
   right: 40px;
   width: 50px;
   height: 50px;
-  background-color: #cf1b1b;
-  color: white;
+  background-color: var(--accent);
+  color: var(--accent-foreground);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -50,7 +50,7 @@ const ScrollButton = styled.div`
   animation: ${moveUpDown} 2s infinite;
 
   &:hover {
-    background-color: #cf1b1b;
+    background-color: var(--accent);
   }
 
   @media (max-width: 768px) {

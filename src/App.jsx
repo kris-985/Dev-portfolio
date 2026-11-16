@@ -70,27 +70,27 @@ const WelcomeContainer = styled(motion.div)`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #0a0f14;
+  background: #f4f3ed;
   gap: 2rem;
 `;
 
 const WelcomeLogo = styled(motion.div)`
   font-size: 4rem;
   font-weight: 700;
-  color: #14b8a6;
-  letter-spacing: -0.02em;
+  color: #315b43;
+  letter-spacing: -0.06em;
 `;
 
 const LoadingBar = styled.div`
   width: 200px;
   height: 2px;
-  background: #1e293b;
-  border-radius: 2px;
+  background: #d9ddd2;
+  border-radius: 999px;
   overflow: hidden;
 `;
 
 const LoadingProgress = styled(motion.div)`
   height: 100%;
-  background: #14b8a6;
-  border-radius: 2px;
+  background: #c7f36b;
+  border-radius: 999px;
 `;

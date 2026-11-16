@@ -97,20 +97,29 @@ export const NavBar = () => {
 
         <RightSection>
           <Flag>
-            <FlagImg
-              src={bulgaria}
-              alt="BG"
-              active={language === "bg" ? 1 : 0}
+            <FlagButton
+              type="button"
+              aria-label="Български"
+              aria-pressed={language === "bg"}
               onClick={() => handleLanguageChange("bg")}
-            />
-            <FlagImg
-              src={england}
-              alt="EN"
-              active={language === "en" ? 1 : 0}
+            >
+              <FlagImg src={bulgaria} alt="" active={language === "bg" ? 1 : 0} />
+            </FlagButton>
+            <FlagButton
+              type="button"
+              aria-label="English"
+              aria-pressed={language === "en"}
               onClick={() => handleLanguageChange("en")}
-            />
+            >
+              <FlagImg src={england} alt="" active={language === "en" ? 1 : 0} />
+            </FlagButton>
           </Flag>
-          <MenuWrapper onClick={renderNavBar}>
+          <MenuWrapper
+            type="button"
+            aria-label={extendBar ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={extendBar}
+            onClick={renderNavBar}
+          >
             {extendBar ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
           </MenuWrapper>
         </RightSection>
@@ -175,7 +184,7 @@ const Wrapper = styled.nav`
   width: 100%;
   top: 0;
   z-index: 1000;
-  background: ${({ scrolled }) => scrolled ? 'rgba(10, 15, 20, 0.95)' : 'transparent'};
+  background: ${({ scrolled }) => scrolled ? 'rgba(244, 243, 237, 0.92)' : 'transparent'};
   backdrop-filter: ${({ scrolled }) => scrolled ? 'blur(10px)' : 'none'};
   border-bottom: ${({ scrolled }) => scrolled ? '1px solid rgba(30, 41, 59, 0.5)' : 'none'};
   transition: all 0.3s ease;
@@ -203,7 +212,7 @@ const Logo = styled(Link)`
 const LogoText = styled.span`
   font-size: 1.5rem;
   font-weight: 700;
-  color: #14b8a6;
+  color: var(--accent);
   letter-spacing: -0.02em;
 `;
 
@@ -220,7 +229,7 @@ const NavLinks = styled.div`
 const Navlink = styled(Link)`
   font-size: 0.875rem;
   font-weight: 500;
-  color: ${({ active }) => active ? '#14b8a6' : '#94a3b8'};
+  color: ${({ active }) => active ? 'var(--accent)' : 'var(--muted-foreground)'};
   text-transform: uppercase;
   letter-spacing: 0.05em;
   transition: color 0.2s ease;
@@ -233,12 +242,12 @@ const Navlink = styled(Link)`
     left: 0;
     width: ${({ active }) => active ? '100%' : '0'};
     height: 2px;
-    background: #14b8a6;
+    background: var(--accent);
     transition: width 0.2s ease;
   }
 
   &:hover {
-    color: #14b8a6;
+    color: var(--accent);
     &::after {
       width: 100%;
     }
@@ -256,6 +265,16 @@ const Flag = styled.div`
   gap: 0.5rem;
 `;
 
+const FlagButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+`;
+
 const FlagImg = styled.img`
   width: 28px;
   height: 28px;
@@ -264,7 +283,7 @@ const FlagImg = styled.img`
   object-fit: cover;
   opacity: ${({ active }) => active ? 1 : 0.5};
   transition: all 0.2s ease;
-  border: 2px solid ${({ active }) => active ? '#14b8a6' : 'transparent'};
+  border: 2px solid ${({ active }) => active ? 'var(--accent)' : 'transparent'};
 
   &:hover {
     opacity: 1;
@@ -275,7 +294,7 @@ const MenuWrapper = styled.button`
   display: none;
   background: none;
   border: none;
-  color: #e2e8f0;
+  color: var(--foreground);
   cursor: pointer;
   padding: 0.25rem;
 
@@ -294,7 +313,7 @@ const MobileMenu = styled.div`
     flex-direction: column;
     gap: 1.5rem;
     padding: 1.5rem 2rem 2rem;
-    background: rgba(10, 15, 20, 0.98);
+    background: rgba(244, 243, 237, 0.98);
     border-top: 1px solid rgba(30, 41, 59, 0.5);
   }
 `;

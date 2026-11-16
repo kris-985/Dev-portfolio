@@ -129,7 +129,7 @@ const SectionLabel = styled.h2`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #14b8a6;
+  color: var(--accent);
   margin-bottom: 3rem;
   position: relative;
   display: inline-flex;
@@ -140,7 +140,7 @@ const SectionLabel = styled.h2`
     content: '';
     width: 40px;
     height: 1px;
-    background: #14b8a6;
+    background: var(--accent);
   }
 `;
 
@@ -155,7 +155,7 @@ const SkillCategory = styled.div``;
 const CategoryTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: 600;
-  color: #e2e8f0;
+  color: var(--foreground);
   margin-bottom: 1.5rem;
 `;
 
@@ -170,8 +170,8 @@ const SkillsGrid = styled.div`
 `;
 
 const SkillCard = styled.div`
-  background: #111921;
-  border: 1px solid #1e293b;
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.25rem;
   display: flex;
@@ -189,7 +189,7 @@ const SkillCard = styled.div`
   `}
 
   &:hover {
-    border-color: ${({ color }) => color || '#14b8a6'};
+    border-color: ${({ color }) => color || 'var(--accent)'};
     transform: translateY(-4px);
     box-shadow: 0 10px 40px -10px ${({ color }) => color ? `${color}20` : 'rgba(20, 184, 166, 0.2)'};
   }
@@ -197,7 +197,7 @@ const SkillCard = styled.div`
 
 const SkillIcon = styled.div`
   font-size: 2rem;
-  color: ${({ color }) => color || '#94a3b8'};
+  color: ${({ color }) => color || 'var(--muted-foreground)'};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,6 +211,6 @@ const SkillIcon = styled.div`
 const SkillName = styled.span`
   font-size: 0.875rem;
   font-weight: 500;
-  color: #94a3b8;
+  color: var(--muted-foreground);
   text-align: center;
 `;

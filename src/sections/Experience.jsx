@@ -159,7 +159,7 @@ const SectionLabel = styled.span`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #14b8a6;
+  color: var(--accent);
   display: inline-flex;
   align-items: center;
   gap: 1rem;
@@ -168,14 +168,14 @@ const SectionLabel = styled.span`
     content: '';
     width: 40px;
     height: 1px;
-    background: #14b8a6;
+    background: var(--accent);
   }
 `;
 
 const SectionTitle = styled.h2`
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  color: #e2e8f0;
+  color: var(--foreground);
   margin: 1rem 0 3rem;
 `;
 
@@ -214,16 +214,16 @@ const MarkerIcon = styled.div`
   align-items: center;
   justify-content: center;
   background: rgba(20, 184, 166, 0.1);
-  border: 2px solid #14b8a6;
+  border: 2px solid var(--accent);
   border-radius: 50%;
-  color: #14b8a6;
+  color: var(--accent);
   font-size: 1.125rem;
   z-index: 1;
   transition: all 0.3s ease;
 
   ${TimelineItem}:hover & {
-    background: #14b8a6;
-    color: #0a0f14;
+    background: var(--accent);
+    color: var(--accent-foreground);
     transform: scale(1.1);
   }
 
@@ -237,13 +237,13 @@ const MarkerIcon = styled.div`
 const TimelineLine = styled.div`
   width: 2px;
   flex: 1;
-  background: linear-gradient(180deg, #14b8a6 0%, rgba(20, 184, 166, 0.2) 100%);
+  background: linear-gradient(180deg, var(--accent) 0%, rgba(20, 184, 166, 0.2) 100%);
   min-height: 100px;
 `;
 
 const TimelineContent = styled.div`
-  background: #111921;
-  border: 1px solid #1e293b;
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.5rem;
   flex: 1;
@@ -251,7 +251,7 @@ const TimelineContent = styled.div`
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: #14b8a6;
+    border-color: var(--accent);
     transform: translateX(8px);
   }
 
@@ -282,7 +282,7 @@ const TitleWrapper = styled.div``;
 const JobTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: 600;
-  color: #e2e8f0;
+  color: var(--foreground);
   margin-bottom: 0.25rem;
 
   @media (max-width: 768px) {
@@ -293,13 +293,13 @@ const JobTitle = styled.h3`
 const Company = styled.span`
   font-size: 1rem;
   font-weight: 500;
-  color: #14b8a6;
+  color: var(--accent);
 `;
 
 const Period = styled.span`
   font-size: 0.875rem;
   font-weight: 500;
-  color: #94a3b8;
+  color: var(--muted-foreground);
   background: rgba(148, 163, 184, 0.1);
   padding: 0.375rem 0.75rem;
   border-radius: 9999px;
@@ -315,7 +315,7 @@ const DescriptionList = styled.ul`
 
 const DescriptionItem = styled.li`
   font-size: 0.9375rem;
-  color: #94a3b8;
+  color: var(--muted-foreground);
   line-height: 1.6;
   padding-left: 1.25rem;
   position: relative;
@@ -327,7 +327,7 @@ const DescriptionItem = styled.li`
     top: 0.625rem;
     width: 6px;
     height: 6px;
-    background: #14b8a6;
+    background: var(--accent);
     border-radius: 50%;
   }
 `;

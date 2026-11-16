@@ -65,8 +65,8 @@ export const Footer = () => {
 };
 
 const FooterContainer = styled.footer`
-  background: #0d1117;
-  border-top: 1px solid #1e293b;
+  background: var(--background);
+  border-top: 1px solid var(--border);
   padding: 3rem 2rem 2rem;
 
   @media (max-width: 768px) {
@@ -97,13 +97,13 @@ const LogoSection = styled.div``;
 const Logo = styled.div`
   font-size: 1.75rem;
   font-weight: 700;
-  color: #14b8a6;
+  color: var(--accent);
   margin-bottom: 0.5rem;
 `;
 
 const TagLine = styled.p`
   font-size: 0.875rem;
-  color: #94a3b8;
+  color: var(--muted-foreground);
 `;
 
 const NavLinks = styled.nav`
@@ -119,11 +119,11 @@ const NavLinks = styled.nav`
 
 const NavLink = styled(Link)`
   font-size: 0.875rem;
-  color: #94a3b8;
+  color: var(--muted-foreground);
   transition: color 0.2s ease;
 
   &:hover {
-    color: #14b8a6;
+    color: var(--accent);
   }
 `;
 
@@ -142,21 +142,21 @@ const SocialLink = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #1e293b;
+  border: 1px solid var(--border);
   border-radius: 8px;
-  color: #94a3b8;
+  color: var(--muted-foreground);
   font-size: 1.125rem;
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: #14b8a6;
-    color: #14b8a6;
+    border-color: var(--accent);
+    color: var(--accent);
   }
 `;
 
 const Divider = styled.div`
   height: 1px;
-  background: #1e293b;
+  background: var(--border);
   margin: 2rem 0;
 `;
 

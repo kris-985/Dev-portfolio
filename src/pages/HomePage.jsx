@@ -1,11 +1,9 @@
 import { Home, About, Experience, Skills, Projects, Contacts } from "../sections";
-import { SpaceBackground } from "../components/SpaceBackground";
 import styled from "styled-components";
 
 export const HomePage = () => {
   return (
     <>
-      <SpaceBackground />
       <PageContainer>
         <Home />
         <About />
