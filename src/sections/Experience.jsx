@@ -7,11 +7,11 @@ import { useScrollAnimation } from "../hooks/useScrollAnimation";
 const experienceData = [
   {
     title: {
-      en: "Junior Software Engineer",
-      bg: "Младши Софтуерен Инженер"
+      en: "Software Engineer",
+      bg: "Софтуерен Инженер"
     },
     company: "Smarch",
-    period: "05/2025 - 02/2026",
+    period: "05/2025 - 03/2026",
     description: {
       en: [
         "Developed REST APIs with Node.js",

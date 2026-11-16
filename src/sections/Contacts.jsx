@@ -1,5 +1,5 @@
 import styled, { keyframes, css } from "styled-components";
-import { FaLinkedin, FaEnvelope, FaGithub, FaArrowRight } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope, FaGithub, FaArrowRight, FaPhoneAlt, FaGlobe } from "react-icons/fa";
 import { contacts } from "../localizations/strings";
 import { useSelector } from "react-redux";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
@@ -13,19 +13,31 @@ export const Contacts = () => {
     {
       icon: <FaEnvelope />,
       label: "Email",
-      value: "kristiyan.bakalov@gmail.com",
-      href: "mailto:kristiyan.bakalov@gmail.com"
+      value: "kris.bakalov98@gmail.com",
+      href: "mailto:kris.bakalov98@gmail.com"
+    },
+    {
+      icon: <FaPhoneAlt />,
+      label: "Phone",
+      value: "0888905097",
+      href: "tel:0888905097"
+    },
+    {
+      icon: <FaGlobe />,
+      label: "Portfolio",
+      value: "kristiyan-bakalov.vercel.app",
+      href: "https://kristiyan-bakalov.vercel.app"
     },
     {
       icon: <FaLinkedin />,
       label: "LinkedIn",
-      value: "@kristiyan-bakalov",
+      value: "linkedin.com/in/kristiyan-bakalov",
       href: "https://www.linkedin.com/in/kristiyan-bakalov/"
     },
     {
       icon: <FaGithub />,
       label: "GitHub",
-      value: "@kris-985",
+      value: "github.com/kris-985",
       href: "https://github.com/kris-985"
     },
   ];
@@ -42,7 +54,7 @@ export const Contacts = () => {
           </Heading>
           <Description>{label.description}</Description>
           
-          <ContactButton href="mailto:kristiyan.bakalov@gmail.com">
+          <ContactButton href="mailto:kris.bakalov98@gmail.com">
             {language === 'en' ? 'Get in touch' : 'Свържете се с мен'}
             <FaArrowRight />
           </ContactButton>
