@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { bulgaria, england } from "../assets";
+import { bulgaria, unitedKingdom } from "../assets";
 import { HashLink as Link } from "react-router-hash-link";
 import { navBar } from "../localizations/strings";
 import { useLocation } from "react-router";
@@ -111,7 +111,7 @@ export const NavBar = () => {
               aria-pressed={language === "en"}
               onClick={() => handleLanguageChange("en")}
             >
-              <FlagImg src={england} alt="" active={language === "en" ? 1 : 0} />
+              <FlagImg src={unitedKingdom} alt="" active={language === "en" ? 1 : 0} />
             </FlagButton>
           </Flag>
           <MenuWrapper

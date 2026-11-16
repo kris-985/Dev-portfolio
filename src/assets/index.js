@@ -5,7 +5,7 @@ import movie from "./movie.png";
 import avatar from "./avatar.jpg";
 import react from "./react.png";
 import bulgaria from "./bulgaria.png";
-import england from "./england.png";
+import unitedKingdom from "./united-kingdom.svg";
 import fitart from "./fitart.png";
 import tracker from "./tracker.png";
 
@@ -17,7 +17,7 @@ export {
   avatar,
   react,
   bulgaria,
-  england,
+  unitedKingdom,
   fitart,
   tracker,
 };
